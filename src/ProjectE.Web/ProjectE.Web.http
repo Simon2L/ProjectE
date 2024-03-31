@@ -1,6 +1,20 @@
-@ProjectE.Web_HostAddress = http://localhost:5195
+@ProjectE.Web_HostAddress = https://localhost:7194
 
-GET {{ProjectE.Web_HostAddress}}/weatherforecast/
+@MusicID=9268891c-3aa8-4aff-ac5a-4454fa6aa672
+@MusicID2=a8233ebb-a2cb-4ec5-bbc2-9da1a7a06cb4
+GET {{ProjectE.Web_HostAddress}}/music/{{MusicID}}
 Accept: application/json
 
+###
+
+POST {{ProjectE.Web_HostAddress}}/music
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "a8233ebb-a2cb-4ec5-bbc2-9da1a7a06cb4",
+  "songName": "My new cool song",
+  "artist": "imon",
+  "genre": "Funk"
+}
 ###
