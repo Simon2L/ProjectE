@@ -22,7 +22,7 @@ internal class MusicConfiguration : IEntityTypeConfiguration<Music>
             .HasMaxLength(DataSchemaConstants.DEFAULT_NAME_LENGTH)
             .IsRequired();
 
-        builder.Property(p => p.Genre)
+        builder.Property(p => p.Emoji)
             .HasMaxLength(DataSchemaConstants.DEFAULT_GENRE_LENGTH)
             .IsRequired();
 
@@ -41,15 +41,16 @@ internal class MusicConfiguration : IEntityTypeConfiguration<Music>
         string abba = "Abba";
         string avicii = "Avicii";
 
-        yield return new Music(Music1Guid, "Bad Romace", ladyGaga, "Genre");
-        yield return new Music(Music8Guid, "Poker Face", ladyGaga, "Genre");
-        yield return new Music(Music2Guid, "Don’t Stop the Music", rihanna, "Genre");
-        yield return new Music(Music3Guid, "Where Have You Been", rihanna, "Genre");
-        yield return new Music(Music4Guid, "Die For You", theWeeknd, "Genre");
-        yield return new Music(Music7Guid, "Blinding Lights", theWeeknd, "Genre");
-        yield return new Music(Music5Guid, "Angel Eyes", abba, "Genre");
-        yield return new Music(Music6Guid, "Dancing Queen", abba, "Genre");
-        yield return new Music(Music9Guid, "Levels", avicii, "Genre");
-        yield return new Music(Music10Guid, "Addicted To You", avicii, "Genre");
+        yield return new Music(Music1Guid, "Bad Romace", ladyGaga, "Emoji");
+        yield return new Music(Music8Guid, "Poker Face", ladyGaga, "Emoji");
+        yield return new Music(Music2Guid, "Don’t Stop the Music", rihanna, "Emoji");
+        yield return new Music(Music3Guid, "Where Have You Been", rihanna, "Emoji");
+        yield return new Music(Music4Guid, "Die For You", theWeeknd, "Emoji");
+        yield return new Music(Music7Guid, "Blinding Lights", theWeeknd, "Emoji");
+        yield return new Music(Music5Guid, "Angel Eyes", abba, "Emoji");
+        yield return new Music(Music6Guid, "Dancing Queen", abba, "Emoji");
+        yield return new Music(Music9Guid, "Levels", avicii, "Emoji");
+        yield return new Music(Music10Guid, "Addicted To You", avicii, "Emoji");
+
     }
 }

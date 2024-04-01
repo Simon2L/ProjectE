@@ -12,8 +12,8 @@ using ProjectE.Music.Data;
 namespace ProjectE.Music.Data.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    [Migration("20240331231135_Initital")]
-    partial class Initital
+    [Migration("20240401145858_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace ProjectE.Music.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("Emoji")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -56,70 +56,70 @@ namespace ProjectE.Music.Data.Migrations
                         {
                             Id = new Guid("9268891c-3aa8-4aff-ac5a-4454fa6aa672"),
                             Artist = "Lady Gaga",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Bad Romace"
                         },
                         new
                         {
                             Id = new Guid("14311560-98e1-4ca4-bfa6-4cb022501b2f"),
                             Artist = "Lady Gaga",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Poker Face"
                         },
                         new
                         {
                             Id = new Guid("f25c986b-fc36-439e-bc29-9616ff2d7e95"),
                             Artist = "Rihanna",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Don’t Stop the Music"
                         },
                         new
                         {
                             Id = new Guid("850111d5-6409-4196-a362-c53f007ed4dd"),
                             Artist = "Rihanna",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Where Have You Been"
                         },
                         new
                         {
                             Id = new Guid("10ea0c9a-d776-4d66-a383-dc6a00880d76"),
                             Artist = "The Weeknd",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Die For You"
                         },
                         new
                         {
                             Id = new Guid("d469ca99-8520-4f03-ad64-324dda4b0d78"),
                             Artist = "The Weeknd",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Blinding Lights"
                         },
                         new
                         {
                             Id = new Guid("2a31f0f1-e815-4590-885c-6c03de9c7ba2"),
                             Artist = "Abba",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Angel Eyes"
                         },
                         new
                         {
                             Id = new Guid("0a4a2648-a7f6-41c6-b3e6-d9329b2a345d"),
                             Artist = "Abba",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Dancing Queen"
                         },
                         new
                         {
                             Id = new Guid("59fdc46f-8528-44c3-8095-ebbc6e5785ea"),
                             Artist = "Avicii",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Levels"
                         },
                         new
                         {
                             Id = new Guid("444521eb-fc20-4cf5-b935-fd6008b928bf"),
                             Artist = "Avicii",
-                            Genre = "Genre",
+                            Emoji = "Emoji",
                             SongName = "Addicted To You"
                         });
                 });
