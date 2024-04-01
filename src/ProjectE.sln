@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectE.Web", "ProjectE.We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectE.Music", "ProjectE.Music\ProjectE.Music.csproj", "{1B2DAB54-8C80-48D9-8700-A6D8DCB32B96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectE.Movies", "ProjectE.Movies\ProjectE.Movies.csproj", "{10C7AB6A-CC41-49ED-8013-F3563FB871CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectE.Movies", "ProjectE.Movies\ProjectE.Movies.csproj", "{10C7AB6A-CC41-49ED-8013-F3563FB871CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Music Module", "Music Module", "{9B4745B1-FB40-4CDF-8724-94909A480C2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +32,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B2DAB54-8C80-48D9-8700-A6D8DCB32B96} = {9B4745B1-FB40-4CDF-8724-94909A480C2C}
 	EndGlobalSection
 EndGlobal
