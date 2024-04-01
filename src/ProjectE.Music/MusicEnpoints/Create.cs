@@ -19,7 +19,7 @@ internal class Create(IMusicService musicService) :
         var newMusicDto = new MusicDto(req.Id ?? Guid.NewGuid(),
             req.SongName,
             req.Artist,
-            req.Genre);
+            req.Emoji);
 
         await _musicService.CreateMusicAsync(newMusicDto);
 
@@ -33,5 +33,5 @@ public class CreateMusicRequest
     public Guid? Id { get; set; }
     public string SongName { get; set; } = string.Empty;
     public string Artist { get; set; } = string.Empty;
-    public string Genre { get; set; } = string.Empty;
+    public string Emoji { get; set; } = string.Empty;
 }
