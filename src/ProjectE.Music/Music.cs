@@ -7,14 +7,14 @@ internal class Music
     public Guid Id { get; private set; } = Guid.NewGuid();
     public string SongName { get; private set; } = string.Empty;
     public string Artist { get; private set; } = string.Empty;
-    public string Genre { get; private set; } = string.Empty; //Should be enumerable list of genres
+    public string Emoji { get; private set; } = string.Empty; //Should be enumerable list of genres
 
-    internal Music(Guid id, string songName, string artist, string genre) 
+    internal Music(Guid id, string songName, string artist, string emoji) 
     { 
         Id = Guard.Against.Default(id);
         SongName = Guard.Against.NullOrEmpty(songName);
         Artist = Guard.Against.NullOrEmpty(artist);
-        Genre = Guard.Against.NullOrEmpty(genre);
+        Emoji = Guard.Against.NullOrEmpty(emoji);
     }
 
     // TODO: update Name/Artist?

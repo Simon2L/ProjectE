@@ -15,6 +15,17 @@ Content-Type: application/json
   "id": "a8233ebb-a2cb-4ec5-bbc2-9da1a7a06cb4",
   "songName": "My new cool song",
   "artist": "imon",
-  "genre": "Funk"
+  "emoji": "Funk"
 }
+###
+
+GET {{ProjectE.Web_HostAddress}}/music
+Accept: application/json
+
+###
+
+@MusicID3=a8233ebb-a2cb-4ec5-bbc2-9da1a7a06cb4
+DELETE {{ProjectE.Web_HostAddress}}/music/{{MusicID3}}
+Accept: application/json
+
 ###

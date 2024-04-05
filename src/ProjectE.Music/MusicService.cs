@@ -12,7 +12,7 @@ internal class MusicService : IMusicService
 
     public async Task CreateMusicAsync(MusicDto newMusic)
     {
-        var music = new Music(newMusic.Id, newMusic.SongName, newMusic.Artist, newMusic.Genre);
+        var music = new Music(newMusic.Id, newMusic.SongName, newMusic.Artist, newMusic.Emoji);
 
         await _musicRepository.AddAsync(music);
         await _musicRepository.SaveChangesAsync();
@@ -33,13 +33,13 @@ internal class MusicService : IMusicService
         var music = await _musicRepository.GetByIdAsync(id);
 
         // TODO: if not found?
-        return new MusicDto(music!.Id, music.SongName, music.Artist, music.Genre);
+        return new MusicDto(music!.Id, music.SongName, music.Artist, music.Emoji);
     }
 
     public async Task<List<MusicDto>> ListMusicAsync()
     {
         var music = (await _musicRepository.ListAsync())
-            .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Genre))
+            .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
             .ToList();
 
         return music;

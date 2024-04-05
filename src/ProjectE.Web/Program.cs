@@ -30,3 +30,5 @@ app.UseFastEndpoints().
     UseSwaggerGen();
 
 app.Run();
+
+public partial class Program { } // needed for tests
