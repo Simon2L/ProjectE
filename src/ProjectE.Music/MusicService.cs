@@ -1,4 +1,5 @@
 ﻿using ProjectE.Music.Data;
+using ProjectE.Music.MusicEnpoints;
 
 namespace ProjectE.Music;
 
@@ -39,6 +40,20 @@ internal class MusicService : IMusicService
     public async Task<List<MusicDto>> ListMusicAsync()
     {
         var music = (await _musicRepository.ListAsync())
+            .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
+            .ToList();
+
+        return music;
+    }
+
+    public async Task<List<MusicDto>> ListMusicRelatedToEmojisAsync(ListMusicRelatedToEmojisRequest req)
+    {
+
+        // TODO: if same emoji same song dupplicated
+        var music = (await _musicRepository.ListAsync())
+            .Where(music => music.Emoji.Contains(req.FirstEmoji)
+            || music.Emoji.Contains(req.SecondEmoji)
+            || music.Emoji.Contains(req.ThirdEmoji))
             .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
             .ToList();
 

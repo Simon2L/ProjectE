@@ -24,31 +24,3 @@ internal class Music
     //}
     //...
 }
-
-internal enum SongGenre
-{
-    Rock,
-    Pop,
-    HipHop,
-    Jazz,
-    Blues,
-    Country,
-    Electronic,
-    RnB,
-    Classical,
-    Reggae,
-    Metal,
-    Folk,
-    Punk,
-    Rap,
-    Indie,
-    Dance,
-    Soul,
-    Funk,
-    Gospel,
-    World,
-    Latin,
-    Alternative,
-    Experimental,
-    Ambient
-}
