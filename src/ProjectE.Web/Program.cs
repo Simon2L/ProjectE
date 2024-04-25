@@ -7,6 +7,16 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("CorsAllAccessPolicy", option =>
+    option.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    );
+});
+
+
 // TODO: Authentication for a later feature 
 builder.Services
    //.AddAuthenticationJwtBearer(s => s.SigningKey = "secret key from json")
@@ -21,7 +31,10 @@ builder.Services.AddMusicServices(builder.Configuration, mediatRAssemblies);
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
+
 var app = builder.Build();
+
+app.UseCors("CorsAllAccessPolicy");
 
 //app.UseAuthentication()
 //    .UseAuthorization();
