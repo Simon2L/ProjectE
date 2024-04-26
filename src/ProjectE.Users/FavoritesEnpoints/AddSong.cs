@@ -1,6 +1,8 @@
 ﻿using Ardalis.Result;
+using Ardalis.Result.AspNetCore;
 using FastEndpoints;
 using MediatR;
+using ProjectE.Users.UseCases.Favorites;
 using System.Security.Claims;
 
 namespace ProjectE.Users.FavoritesEnpoints;
@@ -27,7 +29,7 @@ internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
             await SendAsync("Email Null");
         }
 
-        var command = new AddSongToFavoritesCommand(req.Id, emailAddress);
+        var command = new AddSongToFavoritesCommand(req.Id, emailAddress!);
 
         var result = await _mediator!.Send(command);
 
