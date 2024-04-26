@@ -19,19 +19,21 @@ jobs:
           node-version: '20.x'
 
       - name: npm install, build, and test
+        working-directory: ./ProjectE/client
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./client/* -r
+        working-directory: ./ProjectE/client
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: release.zip
+          path: ./ProjectE/client/release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,7 +51,7 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip -d ./client
+        run: unzip ./ProjectE/client/release.zip -d ./ProjectE/client
       
       - name: Login to Azure
         uses: azure/login@v1
@@ -64,4 +66,4 @@ jobs:
         with:
           app-name: 'ProjectE'
           slot-name: 'Production'
-          package: ./client
+          package: ./ProjectE/client
