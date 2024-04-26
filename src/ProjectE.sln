@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectE.Movies", "ProjectE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Music Module", "Music Module", "{9B4745B1-FB40-4CDF-8724-94909A480C2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectE.Music.Tests", "ProjectE.Music.Tests\ProjectE.Music.Tests.csproj", "{E187FD7F-6C8C-4B96-BBA4-81A8FD4AF0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectE.Music.Tests", "ProjectE.Music.Tests\ProjectE.Music.Tests.csproj", "{E187FD7F-6C8C-4B96-BBA4-81A8FD4AF0FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movie Module", "Movie Module", "{D7DCF5D1-FFB6-4DE6-B793-6C662E441A3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1B2DAB54-8C80-48D9-8700-A6D8DCB32B96} = {9B4745B1-FB40-4CDF-8724-94909A480C2C}
+		{10C7AB6A-CC41-49ED-8013-F3563FB871CA} = {D7DCF5D1-FFB6-4DE6-B793-6C662E441A3C}
 		{E187FD7F-6C8C-4B96-BBA4-81A8FD4AF0FC} = {9B4745B1-FB40-4CDF-8724-94909A480C2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
