@@ -3,13 +3,9 @@ using ProjectE.Music.MusicEnpoints;
 
 namespace ProjectE.Music;
 
-internal class MusicService : IMusicService
+internal class MusicService(IMusicRepository musicRepository) : IMusicService
 {
-    private readonly IMusicRepository _musicRepository;
-    public MusicService(IMusicRepository musicRepository)
-    {
-        _musicRepository = musicRepository;
-    }
+    private readonly IMusicRepository _musicRepository = musicRepository;
 
     public async Task CreateMusicAsync(MusicDto newMusic)
     {
@@ -49,7 +45,6 @@ internal class MusicService : IMusicService
     public async Task<List<MusicDto>> ListMusicRelatedToEmojisAsync(ListMusicRelatedToEmojisRequest req)
     {
 
-        // TODO: if same emoji same song dupplicated
         var music = (await _musicRepository.ListAsync())
             .Where(music => music.Emoji.Contains(req.FirstEmoji)
             || music.Emoji.Contains(req.SecondEmoji)

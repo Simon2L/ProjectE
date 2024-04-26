@@ -29,7 +29,7 @@ internal class EfMusicRepository : IMusicRepository
 
     public async Task<List<Music>> ListAsync()
     {
-        return await _dbContext.Music.ToListAsync(); //.Select or other query to get what we want
+        return await _dbContext.Music.ToListAsync();
     }
 
     public async Task SaveChangesAsync()
