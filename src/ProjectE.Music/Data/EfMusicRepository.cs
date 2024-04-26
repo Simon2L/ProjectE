@@ -2,13 +2,9 @@
 
 namespace ProjectE.Music.Data;
 
-internal class EfMusicRepository : IMusicRepository
+internal class EfMusicRepository(MusicDbContext dbContext) : IMusicRepository
 {
-    private readonly MusicDbContext _dbContext;
-    public EfMusicRepository(MusicDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly MusicDbContext _dbContext = dbContext;
 
     public Task AddAsync(Music music)
     {
@@ -29,7 +25,7 @@ internal class EfMusicRepository : IMusicRepository
 
     public async Task<List<Music>> ListAsync()
     {
-        return await _dbContext.Music.ToListAsync(); //.Select or other query to get what we want
+        return await _dbContext.Music.ToListAsync();
     }
 
     public async Task SaveChangesAsync()
