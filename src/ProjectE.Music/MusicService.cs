@@ -55,6 +55,7 @@ internal class MusicService : IMusicService
             || music.Emoji.Contains(req.SecondEmoji)
             || music.Emoji.Contains(req.ThirdEmoji))
             .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
+            .Take(5)
             .ToList();
 
         return music;
