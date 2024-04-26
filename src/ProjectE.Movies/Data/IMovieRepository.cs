@@ -1,4 +1,4 @@
-﻿namespace ProjectE.Movies;
+﻿namespace ProjectE.Movies.Data;
 
 // TODO: change to IReadonlyRepository
 internal interface IMovieRepository
