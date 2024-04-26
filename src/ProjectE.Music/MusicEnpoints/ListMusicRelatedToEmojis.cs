@@ -2,6 +2,8 @@
 
 namespace ProjectE.Music.MusicEnpoints;
 
+public record ListMusicRelatedToEmojisRequest(string FirstEmoji, string SecondEmoji, string ThirdEmoji);
+
 internal class ListMusicRelatedToEmojis(IMusicService musicService) : 
     Endpoint<ListMusicRelatedToEmojisRequest, ListMusicRelatedToEmojisResponse>
 {
@@ -30,4 +32,3 @@ public class ListMusicRelatedToEmojisResponse
     public List<MusicDto> Music { get; set; } = [];
 }
 
-public record ListMusicRelatedToEmojisRequest(string FirstEmoji, string SecondEmoji, string ThirdEmoji);

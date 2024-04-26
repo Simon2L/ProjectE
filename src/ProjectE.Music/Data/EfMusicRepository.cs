@@ -2,13 +2,9 @@
 
 namespace ProjectE.Music.Data;
 
-internal class EfMusicRepository : IMusicRepository
+internal class EfMusicRepository(MusicDbContext dbContext) : IMusicRepository
 {
-    private readonly MusicDbContext _dbContext;
-    public EfMusicRepository(MusicDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly MusicDbContext _dbContext = dbContext;
 
     public Task AddAsync(Music music)
     {

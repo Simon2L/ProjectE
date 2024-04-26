@@ -7,7 +7,7 @@ internal class Music
     public Guid Id { get; private set; } = Guid.NewGuid();
     public string SongName { get; private set; } = string.Empty;
     public string Artist { get; private set; } = string.Empty;
-    public string Emoji { get; private set; } = string.Empty; //Should be enumerable list of genres
+    public string Emoji { get; private set; } = string.Empty;
 
     internal Music(Guid id, string songName, string artist, string emoji) 
     { 
