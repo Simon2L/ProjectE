@@ -1,4 +1,4 @@
-﻿namespace ProjectE.Movies;
+﻿namespace ProjectE.Movies.Data;
 
 internal static class DataSchemaConstants
 {

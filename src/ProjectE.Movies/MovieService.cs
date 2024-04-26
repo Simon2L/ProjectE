@@ -1,4 +1,5 @@
-﻿using ProjectE.Movies.MovieEndpoints;
+﻿using ProjectE.Movies.Data;
+using ProjectE.Movies.MovieEndpoints;
 
 namespace ProjectE.Movies;
 

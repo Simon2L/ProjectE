@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ProjectE.Movies;
+namespace ProjectE.Movies.Data;
 
 internal class EfMovieRepository(MovieDbContext dbContext) : IMovieRepository
 {
