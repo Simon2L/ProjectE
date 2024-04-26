@@ -17,4 +17,11 @@ internal class MovieDbContext : DbContext
         //seperate configs for each entity
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
+
+    protected override void ConfigureConventions(
+        ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<double>()
+            .HavePrecision(3, 1);
+    }
 }

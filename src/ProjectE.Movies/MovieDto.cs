@@ -1,3 +1,3 @@
 ﻿namespace ProjectE.Movies;
 
-public record MovieDto(Guid Id, string Title, string Description, string Emoji);
+public record MovieDto(Guid Id, string Title, double Rating, string Emoji);

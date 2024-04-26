@@ -12,7 +12,7 @@ internal class MovieService(IMovieRepository movieRepository) : IMovieService
             .Where(movie => movie.Emoji.Contains(req.FirstEmoji)
             || movie.Emoji.Contains(req.SecondEmoji)
             || movie.Emoji.Contains(req.ThirdEmoji))
-            .Select(movie => new MovieDto(movie.Id, movie.Title, movie.Description, movie.Emoji))
+            .Select(movie => new MovieDto(movie.Id, movie.Title, movie.Rating, movie.Emoji))
             .ToList();
 
         return movies;

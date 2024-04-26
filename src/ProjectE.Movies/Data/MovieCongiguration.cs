@@ -11,8 +11,7 @@ internal class MovieCongiguration : IEntityTypeConfiguration<Movie>
             .HasMaxLength(DataSchemaConstants.DEFAULT_TITLE_LENGTH)
             .IsRequired();
 
-        builder.Property(p => p.Description)
-            .HasMaxLength(DataSchemaConstants.DEFAULT_DESCRIPTION_LENGTH)
+        builder.Property(p => p.Rating)
             .IsRequired();
 
         builder.Property(p => p.Emoji)
@@ -25,6 +24,6 @@ internal class MovieCongiguration : IEntityTypeConfiguration<Movie>
 
     public static IEnumerable<Movie> GetMovieData()
     {
-        yield return new Movie(Guid.NewGuid(), "Dune", "Lisan-Al-Gahib", "yippe");
+        yield return new Movie(Guid.NewGuid(), "Dune", 9.9, "yippe");
     }
 }
