@@ -16,11 +16,9 @@ builder.Services.AddCors(policy =>
     );
 });
 
-
-// TODO: Authentication for a later feature 
 builder.Services
-   //.AddAuthenticationJwtBearer(s => s.SigningKey = "secret key from json")
-   //.AddAuthorization()
+   .AddAuthenticationJwtBearer(s => s.SigningKey = "EXTREMLY LONG LOGIN KEY THAT SHOULD BE IN A JSON FILE")
+   .AddAuthorization()
    .AddFastEndpoints()
    .SwaggerDocument();
 
@@ -36,8 +34,8 @@ var app = builder.Build();
 
 app.UseCors("CorsAllAccessPolicy");
 
-//app.UseAuthentication()
-//    .UseAuthorization();
+app.UseAuthentication()
+    .UseAuthorization();
 
 app.UseFastEndpoints().
     UseSwaggerGen();
