@@ -12,7 +12,7 @@ internal class MovieDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.HasDefaultSchema("Movie");
+        builder.HasDefaultSchema("Movies");
 
         //seperate configs for each entity
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

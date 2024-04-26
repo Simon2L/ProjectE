@@ -3,7 +3,8 @@
 namespace ProjectE.Movies.MovieEndpoints;
 public record ListMoviesRelatedToEmojisRequest(string FirstEmoji, string SecondEmoji, string ThirdEmoji);
 
-internal class ListMoviesRelatedToEmojis(IMovieService movieService) : Endpoint<ListMoviesRelatedToEmojisRequest, ListMoviesRelatedToEmojisResponse>
+internal class ListMoviesRelatedToEmojis(IMovieService movieService) 
+    : Endpoint<ListMoviesRelatedToEmojisRequest, ListMoviesRelatedToEmojisResponse>
 {
     private readonly IMovieService _movieService = movieService;
     public override void Configure()
