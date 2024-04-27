@@ -1,31 +1,7 @@
 import { FormEvent, useState } from "react";
+import { ILoginDetails } from "../../Interfaces/ILoginDetails";
+import { login } from "../../utils/Authentication";
 
-
-export const handleResponse = (response : Response) : Promise<string> => {
-    if (response.ok) {
-        const token  = response.json(); 
-      return token;
-    }
-    return Promise.reject(`Error: ${response.status}`);
-};
-
-export const login = async (signupDetails : ILoginDetails) => {
-    const BASE_URL = "https://localhost:7194"
-    const response = await fetch(`${BASE_URL}/users/login`, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(signupDetails)
-    });
-    return handleResponse(response);
-};
-
-interface ILoginDetails {
-    Email : string,
-    Password : string
-}
 
 const Login = () => {
 
@@ -57,7 +33,6 @@ const Login = () => {
             [name]: value
         }));
     }
-
 
     return (
         <>
