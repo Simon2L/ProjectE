@@ -32,7 +32,6 @@ const Signup = () => {
 
     const handleSubmit = (event : FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(signupDetails);
         signup(signupDetails);
     }
 
@@ -40,8 +39,6 @@ const Signup = () => {
         event.preventDefault();
 
         const { name, value } = event.target;
-        console.log(name);
-        console.log(value)
         setSignupDetails(prevState => ({
             ...prevState,
             [name]: value

@@ -1,19 +1,16 @@
 import { FormEvent, useState } from "react";
 
-interface IToken {
-    token : string
-}
 
-export const handleResponse = async (response : Response) : Promise<IToken> => {
+export const handleResponse = (response : Response) : Promise<string> => {
     if (response.ok) {
-        const token : IToken = await response.json(); 
+        const token  = response.json(); 
       return token;
     }
     return Promise.reject(`Error: ${response.status}`);
 };
 
 export const login = async (signupDetails : ILoginDetails) => {
-    const BASE_URL = "https://localhost:7194:"
+    const BASE_URL = "https://localhost:7194"
     const response = await fetch(`${BASE_URL}/users/login`, {
         method: 'POST',
         headers: {
@@ -36,19 +33,18 @@ const Login = () => {
 
     const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(signupDetails);
-        const user = await login(signupDetails);
+        const token = await login(signupDetails);
         
-        if (user.token) {
+        if (token) {
             console.log("LOGIN SUCCESSFUL!")
-            console.log(user.token);
+            console.log(token);
         }
         else {
             console.log("ILLEGAL POLICE COMING YOUR WAY")
-            console.log(user.token);
+            console.log(token);
         }
         //setLoggedIn(true);
-        localStorage.setItem('jwt', user.token);
+        localStorage.setItem('jwt', token);
 
     }
 
@@ -56,8 +52,6 @@ const Login = () => {
         event.preventDefault();
 
         const { name, value } = event.target;
-        console.log(name);
-        console.log(value)
         setSignupDetails(prevState => ({
             ...prevState,
             [name]: value
