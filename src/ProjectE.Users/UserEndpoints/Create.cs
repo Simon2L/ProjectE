@@ -7,7 +7,7 @@ public record CreateUserRequest(string Email, string UserName, string Password);
 
 internal class Create(UserManager<ApplicationUser> userManager) : Endpoint<CreateUserRequest>
 {
-    private readonly UserManager<ApplicationUser> userManager = userManager;
+    private readonly UserManager<ApplicationUser> _userManager = userManager;
 
     public override void Configure()
     {
@@ -21,12 +21,12 @@ internal class Create(UserManager<ApplicationUser> userManager) : Endpoint<Creat
         var newUser = new ApplicationUser
         {
             Email = req.Email,
-            UserName = req.UserName
+            UserName = req.UserName,
         };
 
-        await userManager.CreateAsync(newUser, req.Password);
+        var result = await _userManager.CreateAsync(newUser, req.Password);
 
-        await SendOkAsync();
+        await SendOkAsync(result);
     }
 }
 

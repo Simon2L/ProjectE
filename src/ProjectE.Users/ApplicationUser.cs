@@ -1,6 +1,5 @@
 ﻿using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace ProjectE.Users;
 

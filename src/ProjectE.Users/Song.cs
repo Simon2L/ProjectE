@@ -2,7 +2,7 @@
 
 namespace ProjectE.Users;
 
-internal class Song
+public class Song
 {
     public Guid Id { get; private set; } = Guid.NewGuid();
     public Guid SongId { get; private set; }
