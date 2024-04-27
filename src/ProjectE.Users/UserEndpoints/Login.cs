@@ -21,7 +21,7 @@ internal class Login(UserManager<ApplicationUser> userManager) : Endpoint<UserLo
         var user = await _userManager.FindByEmailAsync(req.Email);
         if (user is null)
         {
-            await SendAsync("Unath");
+            await SendUnauthorizedAsync();
             return;
         }
         var loginSuccessful = await _userManager.CheckPasswordAsync(user, req.Password);
