@@ -1,38 +1,15 @@
 import { FormEvent, useState } from "react";
-
-export const handleResponse = (res : Response) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-};
-
-export const signup = (signupDetails : ISignupDetails) => {
-    const BASE_URL = "https://localhost:7194"
-    /*return*/ fetch(`${BASE_URL}/users`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(signupDetails)
-    })
-      //.then(handleResponse)
-};
-
-interface ISignupDetails {
-    Username : string,
-    Email : string,
-    Password : string
-}
+import { ISignupDetails } from "../../Interfaces/ISignupDetails";
+import { signup } from "../../utils/Authentication";
 
 const Signup = () => {
 
     const [signupDetails, setSignupDetails] = useState<ISignupDetails>({ Username: "", Email: "", Password: "" });
 
-    const handleSubmit = (event : FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        signup(signupDetails);
+        const response = await signup(signupDetails);
+        console.log(response);
     }
 
     const handleInputChange = (event : React.ChangeEvent<HTMLInputElement>) => {
