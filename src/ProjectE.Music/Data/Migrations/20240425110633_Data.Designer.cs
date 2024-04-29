@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectE.Music.Data;
 
@@ -11,9 +12,11 @@ using ProjectE.Music.Data;
 namespace ProjectE.Music.Data.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    partial class MusicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240425110633_Data")]
+    partial class Data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,6 +271,13 @@ namespace ProjectE.Music.Data.Migrations
                         },
                         new
                         {
+                            Id = new Guid("7e7937c6-8747-4a0f-81b4-3c464f6e88e2"),
+                            Artist = "Queen",
+                            Emoji = "👑🎶",
+                            SongName = "Bohemian Rhapsody"
+                        },
+                        new
+                        {
                             Id = new Guid("05931f03-ec5e-4b68-8e1c-fc2bbfe27f47"),
                             Artist = "Queen",
                             Emoji = "👑👸",
@@ -338,6 +348,13 @@ namespace ProjectE.Music.Data.Migrations
                         },
                         new
                         {
+                            Id = new Guid("9f944c34-dde5-41d0-9f14-1fcd9ed52d9a"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🥁👊",
+                            SongName = "Beat It"
+                        },
+                        new
+                        {
                             Id = new Guid("b01608b3-7782-4924-97fc-d4f2f38aafab"),
                             Artist = "Michael Jackson",
                             Emoji = "👀💕",
@@ -363,6 +380,13 @@ namespace ProjectE.Music.Data.Migrations
                             Artist = "Berlin",
                             Emoji = "🌬️💔",
                             SongName = "Take My Breath Away"
+                        },
+                        new
+                        {
+                            Id = new Guid("e21c33e8-e127-4c28-8f76-11c129fb6769"),
+                            Artist = "George Michael",
+                            Emoji = "💔🎷",
+                            SongName = "Careless Whisper"
                         },
                         new
                         {
@@ -415,10 +439,255 @@ namespace ProjectE.Music.Data.Migrations
                         },
                         new
                         {
+                            Id = new Guid("cef03b8b-7f24-4a95-bf4f-d78d9c4c5180"),
+                            Artist = "Poison",
+                            Emoji = "🌹🎸💔",
+                            SongName = "Every Rose Has Its Thorn"
+                        },
+                        new
+                        {
+                            Id = new Guid("4f08b1bc-8aef-42e5-9175-0626ab69f162"),
+                            Artist = "Joan Jett & the Blackhearts",
+                            Emoji = "🎸🖤",
+                            SongName = "I Love Rock 'n' Roll"
+                        },
+                        new
+                        {
+                            Id = new Guid("6e01b8a2-c228-42aa-8da5-8281db2dc589"),
+                            Artist = "Bon Jovi",
+                            Emoji = "🙏🎸",
+                            SongName = "Livin' on a Prayer"
+                        },
+                        new
+                        {
                             Id = new Guid("12058a5a-89f5-45f4-94fb-d5bb16b44a82"),
                             Artist = "Guns N' Roses",
                             Emoji = "🍬👶🎸",
                             SongName = "Sweet Child o' Mine"
+                        },
+                        new
+                        {
+                            Id = new Guid("a7d02de7-7c28-4cd1-a1d2-0a53c3c60d89"),
+                            Artist = "AC/DC",
+                            Emoji = "🛣️😈",
+                            SongName = "Highway to Hell"
+                        },
+                        new
+                        {
+                            Id = new Guid("d6c7f7e2-f4c8-4e70-bd9e-47ac218f0132"),
+                            Artist = "Queen",
+                            Emoji = "🏆👑",
+                            SongName = "We Are the Champions"
+                        },
+                        new
+                        {
+                            Id = new Guid("22a24321-7e5e-48d6-80bb-b8888bcbce2e"),
+                            Artist = "Queen",
+                            Emoji = "👑🎸",
+                            SongName = "We Will Rock You"
+                        },
+                        new
+                        {
+                            Id = new Guid("c6ccfd21-f085-4641-b570-22d261e48926"),
+                            Artist = "Queen",
+                            Emoji = "💀🎶",
+                            SongName = "Another One Bites the Dust"
+                        },
+                        new
+                        {
+                            Id = new Guid("b8dd307f-4f15-4996-9e8a-f03d2d59bc96"),
+                            Artist = "Queen",
+                            Emoji = "🆓🎶",
+                            SongName = "I Want to Break Free"
+                        },
+                        new
+                        {
+                            Id = new Guid("71e745f5-35b0-4fe4-a0cc-97a0d73654cc"),
+                            Artist = "Queen & David Bowie",
+                            Emoji = "🎶🔨❄️",
+                            SongName = "Under Pressure"
+                        },
+                        new
+                        {
+                            Id = new Guid("92d20026-b92f-4317-b3b2-0e6153288b7c"),
+                            Artist = "Queen",
+                            Emoji = "🎵❤️",
+                            SongName = "Somebody to Love"
+                        },
+                        new
+                        {
+                            Id = new Guid("15b4c9fb-83cd-4a06-9b5a-1cc9e66a5a89"),
+                            Artist = "Queen",
+                            Emoji = "📻👑",
+                            SongName = "Radio Ga Ga"
+                        },
+                        new
+                        {
+                            Id = new Guid("d8e1a7dc-8722-4374-9941-622c344b0f60"),
+                            Artist = "Queen",
+                            Emoji = "👑🎶",
+                            SongName = "Bohemian Rhapsody"
+                        },
+                        new
+                        {
+                            Id = new Guid("b78d13d7-78f2-4e0b-b95b-69ff9df44419"),
+                            Artist = "Queen",
+                            Emoji = "👑👸",
+                            SongName = "Killer Queen"
+                        },
+                        new
+                        {
+                            Id = new Guid("0f3f1275-cf79-4a65-aaf7-7e4d991cc4e0"),
+                            Artist = "Queen",
+                            Emoji = "💖🎶",
+                            SongName = "Love of My Life"
+                        },
+                        new
+                        {
+                            Id = new Guid("8a63da2e-6fa6-42ec-bc58-40937976c123"),
+                            Artist = "Queen",
+                            Emoji = "🛑🚀",
+                            SongName = "Don't Stop Me Now"
+                        },
+                        new
+                        {
+                            Id = new Guid("5cb1d6d7-3b02-4d72-a9e0-67abcc16d191"),
+                            Artist = "Queen",
+                            Emoji = "🍑👩",
+                            SongName = "Fat Bottomed Girls"
+                        },
+                        new
+                        {
+                            Id = new Guid("196839e8-0733-4813-b3e4-9edfb9917d3f"),
+                            Artist = "USA for Africa",
+                            Emoji = "🌎👫🎵",
+                            SongName = "We Are the World"
+                        },
+                        new
+                        {
+                            Id = new Guid("ff6793b4-41a0-4629-a152-1a37d3bc1ad7"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🌍👨‍👩‍👦‍👦",
+                            SongName = "Heal the World"
+                        },
+                        new
+                        {
+                            Id = new Guid("9950b88c-ea1a-4b68-ae6d-156e86ab3842"),
+                            Artist = "Michael Sembello",
+                            Emoji = "🏃‍♂️💃",
+                            SongName = "Maniac"
+                        },
+                        new
+                        {
+                            Id = new Guid("8e0c4ad5-1c39-4181-b2a5-d7cc80d17349"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🧟🌃",
+                            SongName = "Thriller"
+                        },
+                        new
+                        {
+                            Id = new Guid("43f2ef8c-24b6-43f0-a94c-55c8d828079a"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🕴🔫",
+                            SongName = "Smooth Criminal"
+                        },
+                        new
+                        {
+                            Id = new Guid("4b41c417-1922-4763-98ec-b2f9e1b3b00c"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🕺🌟",
+                            SongName = "Billie Jean"
+                        },
+                        new
+                        {
+                            Id = new Guid("1f398abc-72e5-4b47-895f-4aef46e53dc3"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🥁👊",
+                            SongName = "Beat It"
+                        },
+                        new
+                        {
+                            Id = new Guid("d7a6712c-3c70-49df-8a10-3f0917c3f5fd"),
+                            Artist = "Michael Jackson",
+                            Emoji = "👀💕",
+                            SongName = "The Way You Make Me Feel"
+                        },
+                        new
+                        {
+                            Id = new Guid("77d7d19e-d6cc-4aeb-882f-0b35e2db05ab"),
+                            Artist = "Michael Jackson",
+                            Emoji = "⚫⚪",
+                            SongName = "Black or White"
+                        },
+                        new
+                        {
+                            Id = new Guid("73da92b1-1c0e-4a4b-8910-0529c9c5f833"),
+                            Artist = "Michael Jackson",
+                            Emoji = "🚫👎",
+                            SongName = "Bad"
+                        },
+                        new
+                        {
+                            Id = new Guid("51e0cfd4-f93e-46a4-8576-bf1a3e64db25"),
+                            Artist = "Berlin",
+                            Emoji = "🌬️💔",
+                            SongName = "Take My Breath Away"
+                        },
+                        new
+                        {
+                            Id = new Guid("a5b0fd3d-868e-4e19-88a5-d94448d6236c"),
+                            Artist = "George Michael",
+                            Emoji = "💔🎷",
+                            SongName = "Careless Whisper"
+                        },
+                        new
+                        {
+                            Id = new Guid("5f7f79fd-87f5-4c3e-8f5b-7c8995122034"),
+                            Artist = "The Police",
+                            Emoji = "👀👣",
+                            SongName = "Every Breath You Take"
+                        },
+                        new
+                        {
+                            Id = new Guid("0507276e-39b0-4d33-97fd-cb14d8bdaa2f"),
+                            Artist = "Cyndi Lauper",
+                            Emoji = "⏰🔄",
+                            SongName = "Time After Time"
+                        },
+                        new
+                        {
+                            Id = new Guid("b31db1c8-3c39-42e9-a2d3-57f3c7e4ebe5"),
+                            Artist = "Celine Dion",
+                            Emoji = "💔🚢",
+                            SongName = "My Heart Will Go On"
+                        },
+                        new
+                        {
+                            Id = new Guid("1da53585-99c4-48e3-b9cc-9f44748178e1"),
+                            Artist = "The Beatles",
+                            Emoji = "📅🎵",
+                            SongName = "Yesterday"
+                        },
+                        new
+                        {
+                            Id = new Guid("8e7d0802-7861-4f3f-ba7c-8449e2f4bf29"),
+                            Artist = "Lionel Richie",
+                            Emoji = "👋🎵",
+                            SongName = "Hello"
+                        },
+                        new
+                        {
+                            Id = new Guid("1f9ebd8b-65a7-4b40-b663-4fdcf6fd5df7"),
+                            Artist = "Whitney Houston",
+                            Emoji = "💔🎶",
+                            SongName = "I Will Always Love You"
+                        },
+                        new
+                        {
+                            Id = new Guid("87b52bfb-f077-44fb-8257-70b195f62be8"),
+                            Artist = "Guns N' Roses",
+                            Emoji = "🍂🌧️",
+                            SongName = "November Rain"
                         },
                         new
                         {
@@ -433,6 +702,13 @@ namespace ProjectE.Music.Data.Migrations
                             Artist = "U2",
                             Emoji = "❤️🤝",
                             SongName = "With or Without You"
+                        },
+                        new
+                        {
+                            Id = new Guid("57d7f041-991e-4a85-8b38-b2de4b6e4720"),
+                            Artist = "Guns N' Roses",
+                            Emoji = "🍬👶🎸",
+                            SongName = "Sweet Child o' Mine"
                         },
                         new
                         {

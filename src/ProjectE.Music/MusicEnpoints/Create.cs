@@ -1,6 +1,13 @@
 ﻿using FastEndpoints;
 
 namespace ProjectE.Music.MusicEnpoints;
+public class CreateMusicRequest
+{
+    public Guid? Id { get; set; }
+    public string SongName { get; set; } = string.Empty;
+    public string Artist { get; set; } = string.Empty;
+    public string Emoji { get; set; } = string.Empty;
+}
 
 internal class Create(IMusicService musicService) : 
     Endpoint<CreateMusicRequest, MusicDto> 
@@ -28,10 +35,3 @@ internal class Create(IMusicService musicService) :
     }
 }
 
-public class CreateMusicRequest
-{
-    public Guid? Id { get; set; }
-    public string SongName { get; set; } = string.Empty;
-    public string Artist { get; set; } = string.Empty;
-    public string Emoji { get; set; } = string.Empty;
-}

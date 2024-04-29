@@ -1,14 +1,11 @@
 ﻿using ProjectE.Music.Data;
+using ProjectE.Music.MusicEnpoints;
 
 namespace ProjectE.Music;
 
-internal class MusicService : IMusicService
+internal class MusicService(IMusicRepository musicRepository) : IMusicService
 {
-    private readonly IMusicRepository _musicRepository;
-    public MusicService(IMusicRepository musicRepository)
-    {
-        _musicRepository = musicRepository;
-    }
+    private readonly IMusicRepository _musicRepository = musicRepository;
 
     public async Task CreateMusicAsync(MusicDto newMusic)
     {
@@ -40,6 +37,20 @@ internal class MusicService : IMusicService
     {
         var music = (await _musicRepository.ListAsync())
             .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
+            .ToList();
+
+        return music;
+    }
+
+    public async Task<List<MusicDto>> ListMusicRelatedToEmojisAsync(ListMusicRelatedToEmojisRequest req)
+    {
+
+        var music = (await _musicRepository.ListAsync())
+            .Where(music => music.Emoji.Contains(req.FirstEmoji)
+            || music.Emoji.Contains(req.SecondEmoji)
+            || music.Emoji.Contains(req.ThirdEmoji))
+            .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
+            .Take(5)
             .ToList();
 
         return music;

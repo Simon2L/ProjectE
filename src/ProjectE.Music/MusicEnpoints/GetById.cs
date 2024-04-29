@@ -2,6 +2,10 @@
 
 namespace ProjectE.Music.MusicEnpoints;
 
+public class GetMusicByIdRequest 
+{
+    public Guid Id { get; set; }
+}
 internal class GetById(IMusicService musicService) :
     Endpoint<GetMusicByIdRequest, MusicDto>
 { 
@@ -28,7 +32,3 @@ internal class GetById(IMusicService musicService) :
     }
 }
 
-public class GetMusicByIdRequest 
-{
-    public Guid Id { get; set; }
-}

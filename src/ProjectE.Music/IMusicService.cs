@@ -1,4 +1,6 @@
-﻿namespace ProjectE.Music;
+﻿using ProjectE.Music.MusicEnpoints;
+
+namespace ProjectE.Music;
 
 internal interface IMusicService
 {
@@ -6,4 +8,5 @@ internal interface IMusicService
     Task<List<MusicDto>> ListMusicAsync();
     Task CreateMusicAsync(MusicDto newMusic);
     Task DeleteMusicAsync(Guid id);
+    Task<List<MusicDto>> ListMusicRelatedToEmojisAsync(ListMusicRelatedToEmojisRequest req);
 }

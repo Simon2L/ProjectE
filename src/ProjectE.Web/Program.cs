@@ -2,29 +2,42 @@ using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using ProjectE.Music;
+using ProjectE.Users;
 using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// TODO: Authentication for a later feature 
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("CorsAllAccessPolicy", option =>
+    option.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    );
+});
+
 builder.Services
-   //.AddAuthenticationJwtBearer(s => s.SigningKey = "secret key from json")
-   //.AddAuthorization()
+   .AddAuthenticationJwtBearer(s => s.SigningKey = "EXTREMLY LONG LOGIN KEY THAT SHOULD BE IN A JSON FILE")
+   .AddAuthorization()
    .AddFastEndpoints()
    .SwaggerDocument();
 
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddMusicServices(builder.Configuration, mediatRAssemblies);
+builder.Services.AddUserServices(builder.Configuration, mediatRAssemblies);
 
 // Set up MediatR
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
+
 var app = builder.Build();
 
-//app.UseAuthentication()
-//    .UseAuthorization();
+app.UseCors("CorsAllAccessPolicy");
+
+app.UseAuthentication()
+    .UseAuthorization();
 
 app.UseFastEndpoints().
     UseSwaggerGen();

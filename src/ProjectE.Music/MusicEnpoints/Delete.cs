@@ -2,6 +2,10 @@
 
 namespace ProjectE.Music.MusicEnpoints;
 
+public class DeleteMusicRequest
+{
+    public Guid Id { get; set; }
+}
 internal class Delete(IMusicService musicService) : 
     Endpoint<DeleteMusicRequest>
 {
@@ -22,7 +26,3 @@ internal class Delete(IMusicService musicService) :
     }
 }
 
-public class DeleteMusicRequest
-{
-    public Guid Id { get; set; }
-}
