@@ -1,7 +1,9 @@
-import { ILoginDetails } from "../Interfaces/ILoginDetails";
-import { ISignupDetails } from "../Interfaces/ISignupDetails";
+import { ILoginDetails } from "../interfaces/ILoginDetails";
+import { ISignupDetails } from "../interfaces/ISignupDetails";
 
-const BASE_URL = "https://localhost:7194";
+
+const BASE_URL = "https://localhost:7194"
+
 
 export const login = async (signupDetails : ILoginDetails) => {
     const response = await fetch(`${BASE_URL}/users/login`, {
