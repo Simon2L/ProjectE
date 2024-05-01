@@ -4,3 +4,9 @@ export interface ISignupDetails {
     Email : string,
     Password : string
 }
+
+
+export interface ILoginDetails {
+    Email : string,
+    Password : string
+}

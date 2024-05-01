@@ -1,5 +1,4 @@
-import { ILoginDetails } from "../interfaces/ILoginDetails";
-import { ISignupDetails } from "../interfaces/ISignupDetails";
+import { ILoginDetails, ISignupDetails } from "../interfaces/ISignupDetails";
 
 
 const BASE_URL = "https://localhost:7194"
