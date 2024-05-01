@@ -1,108 +1,99 @@
 import { useState } from "react"
-import { quizQuestions } from "../../contexts/questions"
+import { musicQuestions } from "../../contexts/questions"
+import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../interfaces/interfaces"
+import { songResult } from "../../utils/musicService"
+import { movieResult } from "../../utils/movieService"
 
-interface IEmojiAnswers {
-  firstEmoji : string,
-  secondEmoji : string,
-  thirdEmoji : string
+interface IProps {
+  quizQuestions : IQuiz
 }
 
-interface ISong {
-  id: string,
-  songName: string,
-  artist: string
-  emoji: string
-}
-
-interface ISongResult {
-  music: ISong[]
-}
-
-const BASE_URL = "https://localhost:7194";
-
- const songResult = async (emojiAnswers : IEmojiAnswers) : Promise<ISongResult>  => {
-  const response = await fetch(`${BASE_URL}/music`, {
-      method: 'GET',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(emojiAnswers)
-  });
-  if (response.ok) {
-      console.log("RESPONSE: " + response.json())
-      return response.json();
-  }
-  else {
-      console.log(emojiAnswers);
-      console.log("Getting default songs");
-      const defaultSongs : ISongResult = { music: getSongs() }
-      return defaultSongs;
-  }
-}
-
-const getSongs = () : ISong[] => {
-  return [
-      {id: "1", songName: "Don't stop the Music", artist: "Pirhana", emoji: "🍭"},
-      {id: "2", songName: "Levels", artist: "Avicci", emoji: "🦓"},
-      {id: "3", songName: "Poop", artist: "shit", emoji: "📺"},
-      {id: "4", songName: "Valorant", artist: "xdd", emoji: "👑"},
-      {id: "5", songName: "What am I even typing", artist: "lil bro", emoji: "⚡️💭"},
-  ]
-}
-
-const Quiz = () => {
+const Quiz = (props : IProps) => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<IEmojiAnswers>({firstEmoji:"", secondEmoji:"", thirdEmoji:""})
-  const [songResults, setSongsResults] = useState<ISongResult>()
+  const [disableButton, setDisableButton] = useState(false)
   
+  const [songResults, setSongsResults] = useState<ISongResult>()
+  const [movieResults, setMovieResults] = useState<IMovieResult>()
+
   const handleNextQuestion = (selectedAnswer : string) => {
     const nextQuestion = currentQuestion + 1
-    if (nextQuestion >= 3) {
-      songResult({...answers, thirdEmoji:selectedAnswer}).then(songResults => setSongsResults(songResults));
-
-      return;
+    if (nextQuestion === musicQuestions.questions.length) {
+      getResults(selectedAnswer)
     }
     setCurrentQuestion(nextQuestion)
   }
 
-  const handleAnswerSelection = (questionIndex : number, selectedAnswer : string) => {
-
-    const names : string[] = ["firstEmoji", "secondEmoji", "thirdEmoji"];
-
-    setAnswers(prevState => ({
-      ...prevState,
-      [names[questionIndex]]: selectedAnswer
-    }));
-  
-    handleNextQuestion(selectedAnswer); 
-
+  const getResults = (selectedAnswer : string) => {
+    console.log(props.quizQuestions.topic)
+    // TODO: GET RID OF HORRIBLE ANSWERS STUFF
+    switch (props.quizQuestions.topic) {
+      case "music":
+        songResult({...answers, thirdEmoji:selectedAnswer})
+          .then(result => setSongsResults(result))
+        break
+      case "movie":
+        movieResult({...answers, thirdEmoji:selectedAnswer})
+          .then(result => setMovieResults(result))
+        break
+      default:
+        songResult({...answers, thirdEmoji:selectedAnswer})
+        .then(result => setSongsResults(result))
+        break
+    }
+    setDisableButton(true)
   }
 
-  const consoleLog = () => {
-    console.log(songResults);
+  const handleAnswerSelection = (selectedAnswer : string) => {
+    if (disableButton) {
+      return
+    }
+
+    const names : string[] = ["firstEmoji", "secondEmoji", "thirdEmoji"]
+    setAnswers(prevState => ({
+      ...prevState,
+      [names[currentQuestion]]: selectedAnswer
+    }));
+
+    console.log(answers)
+    console.log(selectedAnswer)
+  
+    handleNextQuestion(selectedAnswer)
   }
 
   return (
     <>
-    <div className="quiz">
-      <h2 className="quiz__title">/*Questionary or Results*/</h2>
-      <ul>
-        {quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
-          <li key={index}>
-            <button value={choice} onClick={() => handleAnswerSelection(currentQuestion, choice)}>{choice}</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={consoleLog}>Console Log</button>
-    </div>
-    <div>
+    {!disableButton &&
+      <div className="quiz">
+        <h2 className="quiz__title">/*Questionary or Results*/</h2>
+        <ul>
+          {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
+            <li key={index}>
+              <button disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
+            </li>
+          ))}
+        </ul>
+      </div>}
+      <button onClick={() => console.log(answers)}>Console</button>
+
+      <div>
         <ul>
           {songResults?.music.map((song : ISong) => (
             <li key={song.id}> {song.artist} {song.songName} {song.emoji}</li>
           ))}
         </ul>
-    </div>
+      </div>
+
+      <div>
+        <ul>
+          {movieResults?.movies.map((movie : IMovie) => (
+            <li key={movie.id}> {movie.title} {movie.rating} {movie.emoji}</li>
+          ))}
+        </ul>
+      </div>
+
+
+
     </>
   )
 }
