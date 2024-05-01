@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { ISignupDetails } from "../../interfaces/ISignupDetails";
-import { signup } from "../../utils/authentication";
+import { ISignupDetails } from "../../Interfaces/ISignupDetails";
+import { signup } from "../../authentication";
 
 const Signup = () => {
 

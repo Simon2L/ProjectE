@@ -1,4 +1,4 @@
-import { IEmojiAnswers, IMovie, IMovieResult } from "../interfaces/interfaces";
+import { IEmojiAnswers, IMovie, IMovieResult } from "../Interfaces/interfaces";
 
 const BASE_URL = "https://localhost:7194"
 
