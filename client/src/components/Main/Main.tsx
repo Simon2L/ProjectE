@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Quiz from "../Quiz/Quiz"
 import { gameQuestions, musicQuestions, movieQuestions } from "../../contexts/questions"
-import { IQuiz } from "../../interfaces/interfaces"
+import { IQuiz } from "../../Interfaces/interfaces"
 
 const Main = () => {
   const [buttonIsPressed, setButtonIsPressed] = useState(false)
