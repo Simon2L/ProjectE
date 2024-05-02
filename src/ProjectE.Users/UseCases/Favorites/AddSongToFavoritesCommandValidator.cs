@@ -10,8 +10,16 @@ public class AddSongToFavoritesCommandValidator : AbstractValidator<AddSongToFav
             .NotEmpty()
             .WithMessage("EmailAddress is required");
 
-        RuleFor(x => x.SongId)
+        RuleFor(x => x.Song.Id)
             .NotEmpty()
             .WithMessage("Not a valid SongId");
+
+        RuleFor(x => x.Song.Name)
+            .NotEmpty()
+            .WithMessage("Song name cannot be empty");
+
+        RuleFor(x => x.Song.Artists)
+            .NotEmpty()
+            .WithMessage("Artist cannot be empty");
     }
 }
