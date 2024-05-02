@@ -12,8 +12,8 @@ using ProjectE.Users;
 namespace ProjectE.Users.Data.Migrations
 {
     [DbContext(typeof(UsersDbContext))]
-    [Migration("20240427132251_SongConfig")]
-    partial class SongConfig
+    [Migration("20240502121909_Movies")]
+    partial class Movies
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -233,6 +233,34 @@ namespace ProjectE.Users.Data.Migrations
                     b.ToTable("AspNetUserTokens", "Users");
                 });
 
+            modelBuilder.Entity("ProjectE.Users.Movie", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Emoji")
+                        .IsRequired()
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Rating")
+                        .HasPrecision(3, 1)
+                        .HasColumnType("float(3)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Movie", "Users");
+                });
+
             modelBuilder.Entity("ProjectE.Users.Song", b =>
                 {
                     b.Property<Guid>("Id")
@@ -247,14 +275,12 @@ namespace ProjectE.Users.Data.Migrations
 
                     b.Property<string>("Emoji")
                         .IsRequired()
+                        .IsUnicode(true)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SongId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -321,6 +347,13 @@ namespace ProjectE.Users.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProjectE.Users.Movie", b =>
+                {
+                    b.HasOne("ProjectE.Users.ApplicationUser", null)
+                        .WithMany("FavoriteMovies")
+                        .HasForeignKey("ApplicationUserId");
+                });
+
             modelBuilder.Entity("ProjectE.Users.Song", b =>
                 {
                     b.HasOne("ProjectE.Users.ApplicationUser", null)
@@ -330,6 +363,8 @@ namespace ProjectE.Users.Data.Migrations
 
             modelBuilder.Entity("ProjectE.Users.ApplicationUser", b =>
                 {
+                    b.Navigation("FavoriteMovies");
+
                     b.Navigation("FavoriteSongs");
                 });
 #pragma warning restore 612, 618
