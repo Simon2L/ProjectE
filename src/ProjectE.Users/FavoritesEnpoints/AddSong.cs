@@ -29,7 +29,7 @@ internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
             await SendAsync("Email Null");
         }
 
-        var command = new AddSongToFavoritesCommand(req.Id, emailAddress!);
+        var command = new AddSongToFavoritesCommand(req, emailAddress!);
 
         var result = await _mediator!.Send(command);
 

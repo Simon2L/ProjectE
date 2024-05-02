@@ -1,9 +1,10 @@
 ﻿using Ardalis.Result;
 using MediatR;
+using ProjectE.Users.FavoritesEnpoints;
 
 namespace ProjectE.Users.UseCases.Favorites;
 
-public record AddSongToFavoritesCommand(Guid SongId, string Email)
+public record AddSongToFavoritesCommand(AddSongRequest Song, string Email)
     : IRequest<Result>;
 
 internal class AddSongToFavoritesHandler(IApplicationUserRepository userRepository) 
@@ -25,10 +26,10 @@ internal class AddSongToFavoritesHandler(IApplicationUserRepository userReposito
         // var query = new SongDetailsQuery(request.SongId);
         // mediatr send to Music.Contracts
 
-        var song = new Song(request.SongId,
-            "SONGNAME",
-            "ARTIST",
-            "EMOJI");
+        var song = new Song(request.Song.Id,
+            request.Song.Name,
+            request.Song.Artists,
+            request.Song.Emoji);
 
         user.AddSongToFavorites(song);
 
