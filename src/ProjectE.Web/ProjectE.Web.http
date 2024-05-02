@@ -52,7 +52,21 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTI1MjA3MSwiaWF0IjoxNzE0NjQ3MjcxLCJuYmYiOjE3MTQ2NDcyNzF9.E2CLLwbo-ebhnNeMJ4t9FpvvWKF1x_fmWIJlgK5K38U
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTI1NzI0NiwiaWF0IjoxNzE0NjUyNDQ2LCJuYmYiOjE3MTQ2NTI0NDZ9.TALXof9goaDo7ZTdECdW_cWP1fWygKx2XKnen8fOJaY
+
+POST {{$projectUrl}}/favorites/song
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": "0e4bc0a4-3e7a-4a7b-b98d-02402139e4ad",
+  "name": "Careless Whisper",
+  "artist": "George Michael",
+  "emoji": "????"
+}
+
+###
 
 GET {{ProjectE.Web_HostAddress}}/favorites
 Accept: application/json

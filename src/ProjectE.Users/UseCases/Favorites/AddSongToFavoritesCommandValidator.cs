@@ -18,7 +18,7 @@ public class AddSongToFavoritesCommandValidator : AbstractValidator<AddSongToFav
             .NotEmpty()
             .WithMessage("Song name cannot be empty");
 
-        RuleFor(x => x.Song.Artists)
+        RuleFor(x => x.Song.Artist)
             .NotEmpty()
             .WithMessage("Artist cannot be empty");
     }

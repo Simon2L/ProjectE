@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using MediatR;
-using ProjectE.Users.FavoritesEnpoints;
 
 namespace ProjectE.Users.UseCases.Favorites;
 
@@ -32,11 +31,11 @@ internal class ListAllFavoritesHandler(IApplicationUserRepository userRepository
         }
 
         var favoriteMusic = user.FavoriteSongs
-            .Select(item => new SongDto(item.Id, item.Name, item.Artist, item.Emoji))
+            .Select(item => new SongDto(item.Id, item.Name, item.Artist, System.Net.WebUtility.HtmlDecode(item.Emoji)))
             .ToList();
-
+        
         var favoriteMovies = user.FavoriteMovies
-            .Select(item => new MovieDto(item.Id, item.Title, item.Rating, item.Emoji))
+            .Select(item => new MovieDto(item.Id, item.Title, item.Rating, Uri.UnescapeDataString(item.Emoji)))
             .ToList();
 
         return new FavoritesDto
