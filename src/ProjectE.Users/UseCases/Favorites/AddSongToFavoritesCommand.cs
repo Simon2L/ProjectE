@@ -21,11 +21,6 @@ internal class AddSongToFavoritesHandler(IApplicationUserRepository userReposito
             return Result.Unauthorized();
         }
 
-        // GET SONG DETAILS FROM SONG MODULE
-
-        // var query = new SongDetailsQuery(request.SongId);
-        // mediatr send to Music.Contracts
-
         var song = new Song(request.Song.Id,
             request.Song.Name,
             request.Song.Artists,

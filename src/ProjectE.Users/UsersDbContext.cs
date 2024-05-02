@@ -21,4 +21,11 @@ internal class UsersDbContext : IdentityDbContext
         base.OnModelCreating(modelBuilder);
     }
 
+    protected override void ConfigureConventions(
+        ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<double>()
+            .HavePrecision(3, 1);
+    }
+
 }

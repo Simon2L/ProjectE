@@ -46,10 +46,17 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "frasselk@gmail.com",
+  "email": "testing@gmail.com",
   "password": "MyP@ssword1!"
 }
 
 ###
 
-@TOKEn=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNDgyOTM0NSwiaWF0IjoxNzE0MjI0NTQ1LCJuYmYiOjE3MTQyMjQ1NDV9.8ERHddVDZiNmMxODz016IguodV-7aCYo9ZUTkNV1y5c
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTI1MjA3MSwiaWF0IjoxNzE0NjQ3MjcxLCJuYmYiOjE3MTQ2NDcyNzF9.E2CLLwbo-ebhnNeMJ4t9FpvvWKF1x_fmWIJlgK5K38U
+
+GET {{ProjectE.Web_HostAddress}}/favorites
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+###
