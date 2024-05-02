@@ -1,6 +1,7 @@
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
+using ProjectE.Movies;
 using ProjectE.Music;
 using ProjectE.Users;
 using Serilog;
@@ -25,6 +26,7 @@ builder.Services
 
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddMusicServices(builder.Configuration, mediatRAssemblies);
+builder.Services.AddMovieServices(builder.Configuration, mediatRAssemblies);
 builder.Services.AddUserServices(builder.Configuration, mediatRAssemblies);
 
 // Set up MediatR

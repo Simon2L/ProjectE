@@ -1,4 +1,5 @@
-import { IQuiz } from "../interfaces/interfaces"
+import { IQuiz } from "../Interfaces/interfaces"
+
 
 export const musicQuestions : IQuiz = {
   topic: "music",
