@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ProjectE.Users;
 
-internal class SongConfiguration : IEntityTypeConfiguration<Song>
+internal class MovieConfiguration : IEntityTypeConfiguration<Movie>
 {
-    public void Configure(EntityTypeBuilder<Song> builder)
+    public void Configure(EntityTypeBuilder<Movie> builder)
     {
         builder.Property(item => item.Id)
             .ValueGeneratedNever();

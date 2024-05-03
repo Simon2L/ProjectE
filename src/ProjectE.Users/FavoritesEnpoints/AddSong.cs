@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace ProjectE.Users.FavoritesEnpoints;
 
-public record AddSongRequest(Guid Id, string Name, string Artists, string Emoji);
+public record AddSongRequest(Guid Id, string Name, string Artist, string Emoji);
 
 internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
 {
@@ -29,7 +29,7 @@ internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
             await SendAsync("Email Null");
         }
 
-        var command = new AddSongToFavoritesCommand(req.Id, emailAddress!);
+        var command = new AddSongToFavoritesCommand(req, emailAddress!);
 
         var result = await _mediator!.Send(command);
 

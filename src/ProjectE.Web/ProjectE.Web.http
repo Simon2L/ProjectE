@@ -46,10 +46,31 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "frasselk@gmail.com",
+  "email": "testing@gmail.com",
   "password": "MyP@ssword1!"
 }
 
 ###
 
-@TOKEn=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNDgyOTM0NSwiaWF0IjoxNzE0MjI0NTQ1LCJuYmYiOjE3MTQyMjQ1NDV9.8ERHddVDZiNmMxODz016IguodV-7aCYo9ZUTkNV1y5c
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTI1NzI0NiwiaWF0IjoxNzE0NjUyNDQ2LCJuYmYiOjE3MTQ2NTI0NDZ9.TALXof9goaDo7ZTdECdW_cWP1fWygKx2XKnen8fOJaY
+
+POST {{$projectUrl}}/favorites/song
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": "0e4bc0a4-3e7a-4a7b-b98d-02402139e4ad",
+  "name": "Careless Whisper",
+  "artist": "George Michael",
+  "emoji": "????"
+}
+
+###
+
+GET {{ProjectE.Web_HostAddress}}/favorites
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+###
