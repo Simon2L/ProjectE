@@ -9,8 +9,5 @@ internal class MovieConfiguration : IEntityTypeConfiguration<Movie>
     {
         builder.Property(item => item.Id)
             .ValueGeneratedNever();
-
-        builder.Property(item => item.Emoji)
-            .IsUnicode();
     }
 }
