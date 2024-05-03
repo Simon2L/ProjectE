@@ -16,8 +16,7 @@ internal class MovieCongiguration : IEntityTypeConfiguration<Movie>
 
         builder.Property(p => p.Emoji)
             .HasMaxLength(DataSchemaConstants.DEFAULT_EMOJI_LENGTH)
-            .IsRequired()
-            .IsUnicode();
+            .IsRequired();
 
         builder.HasData(GetMovieData());
     }
