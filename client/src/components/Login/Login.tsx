@@ -1,7 +1,5 @@
 import { FormEvent, useState } from "react";
 import { login } from "../../authentication";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 
 
 const Login = () => {
@@ -27,28 +25,17 @@ const Login = () => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h2>Login now!</h2>
-                <TextField
-                    className="input"
-                    label="Email" 
-                    variant="standard"
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <br/>
-                <TextField
-                    className="input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="standard"
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <br/>
-                <Button type="submit" variant="contained">Login!</Button>
-            </form>
-        </>
+        <form onSubmit={handleSubmit}>
+            <h2>Login now!</h2>
+
+            <label>Email</label>
+            <input onChange={e => setEmail(e.target.value)} name="Email" type="email"/>
+
+            <label>Password</label>
+            <input onChange={e => setPassword(e.target.value)} name="Password" type="password"/>
+
+            <button>Login!</button>
+        </form>
     )
 }
 
