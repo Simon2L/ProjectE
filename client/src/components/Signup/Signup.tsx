@@ -1,43 +1,48 @@
 import { FormEvent, useState } from "react";
-import { ISignupDetails } from "../../Interfaces/ISignupDetails";
 import { signup } from "../../authentication";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import './Signup.css';
 
 const Signup = () => {
-
-    const [signupDetails, setSignupDetails] = useState<ISignupDetails>({ Username: "", Email: "", Password: "" });
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const response = await signup(signupDetails);
-        console.log(response);
+        event.preventDefault()
+        const response = await signup({username: username, email: email, password: password})
+        console.log(response)
     }
-
-    const handleInputChange = (event : React.ChangeEvent<HTMLInputElement>) => {
-        event.preventDefault();
-
-        const { name, value } = event.target;
-        setSignupDetails(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    }
-
 
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <h2>Signup now!</h2>
-
-                <label>Username</label>
-                <input onChange={event => handleInputChange(event)} name="Username" type="text"/>
-
-                <label>Email</label>
-                <input onChange={event => handleInputChange(event)} name="Email" type="email"/>
-
-                <label>Password</label>
-                <input onChange={event => handleInputChange(event)} name="Password" type="password"/>
-
-                <button>Signup!</button>
+                <TextField
+                    className="input"
+                    label="Username" 
+                    variant="standard" 
+                    onChange={e => setUsername(e.target.value)}
+                />
+                <br/>
+                <TextField
+                    className="input"
+                    label="Email" 
+                    variant="standard"
+                    onChange={e => setEmail(e.target.value)}
+                />
+                <br/>
+                <TextField
+                    className="input"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    variant="standard"
+                    onChange={e => setPassword(e.target.value)}
+                />
+                <br/>
+                <Button type="submit" variant="contained">Signup!</Button>
             </form>
         </>
     )

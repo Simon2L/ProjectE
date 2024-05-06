@@ -3,6 +3,7 @@ import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
 import { songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
+import Button from "@mui/material/Button"
 
 interface IProps {
   quizQuestions : IQuiz
@@ -65,16 +66,16 @@ const Quiz = (props : IProps) => {
     <>
     {!disableButton &&
       <div className="quiz">
-        <h2 className="quiz__title">/*Questionary or Results*/</h2>
+        <h2 className="quiz__title">{props.quizQuestions.topic.toUpperCase()}</h2>
         <ul>
           {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
             <li key={index}>
-              <button disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
+              <Button variant="contained" disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</Button>
             </li>
           ))}
         </ul>
       </div>}
-      <button onClick={() => console.log(answers)}>Console</button>
+      <Button variant="contained" onClick={() => console.log(answers)}>Console</Button>
 
       <div>
         <ul>
