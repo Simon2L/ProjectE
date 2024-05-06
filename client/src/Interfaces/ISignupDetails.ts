@@ -1,12 +1,12 @@
 
 export interface ISignupDetails {
-    Username : string,
-    Email : string,
-    Password : string
+    username : string,
+    email : string,
+    password : string
 }
 
 
 export interface ILoginDetails {
-    Email : string,
-    Password : string
+    email : string,
+    password : string
 }
