@@ -31,7 +31,7 @@ const Main = () => {
       <div className="main">
         <ul className="main__menu">
           <li className="main__menu-item">
-            <button value="music" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}/>
+            <button value="music" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}>🎮</button>
           </li>
           <li className="main__menu-item">
             <button value="movie" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}/>
