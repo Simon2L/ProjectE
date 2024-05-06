@@ -9,21 +9,19 @@ const Main = () => {
 
   const onButtonClick = (topic : string) => {
     setButtonIsPressed(!buttonIsPressed)
-    console.log(buttonIsPressed)
-    console.log(topic)
     switch (topic) {
-        case "music":
-            setQuestionType(musicQuestions)
-            break
-        case "movie":
-            setQuestionType(movieQuestions)
-            break
-        case "game":
-            setQuestionType(gameQuestions)
-            break
-        default:
-            setQuestionType(musicQuestions)
-            break
+      case "music":
+        setQuestionType(musicQuestions)
+        break
+      case "movie":
+        setQuestionType(movieQuestions)
+        break
+      case "game":
+        setQuestionType(gameQuestions)
+        break
+      default:
+        setQuestionType(musicQuestions)
+        break
     }
   }
 
