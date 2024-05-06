@@ -24,6 +24,28 @@ try {
   }
 }
 
+export const addSongToFavorites = async (song : ISong) => {
+  try {
+    const response = await fetch(`${BASE_URL}/favorites/music`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(song)
+    })
+    if(response) {
+      console.log("Song was added to favorites")
+    }
+    else {
+      console.error("Song was not added to favorites")
+    }
+  }
+  catch {
+    console.error("Something unexpected happened /(server side not online)")
+  }
+} 
+
 const getSongs = () : ISong[] => {
   return [
       {id: "1", songName: "Music", artist: "123 artist", emoji: "🍭"},

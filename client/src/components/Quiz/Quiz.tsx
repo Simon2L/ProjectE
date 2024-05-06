@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
-import { songResult } from "../../utils/musicService"
+import { addSongToFavorites, songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
 import Button from "@mui/material/Button"
+import './Quiz.css'
 
 interface IProps {
   quizQuestions : IQuiz
@@ -62,6 +63,11 @@ const Quiz = (props : IProps) => {
     handleNextQuestion(selectedAnswer)
   }
 
+  const handleAddToFavorites = (song : ISong) => {
+    addSongToFavorites(song)
+    setOpen(true);
+  }
+
   return (
     <>
     {!disableButton &&
@@ -80,11 +86,13 @@ const Quiz = (props : IProps) => {
       <div>
         <ul>
           {songResults?.music.map((song : ISong) => (
-            <li key={song.id}> {song.artist} {song.songName} {song.emoji}</li>
+            <li key={song.id}>
+              <Button onClick={() => handleAddToFavorites(song)}>⭐</Button>
+              {song.artist} {song.songName} {song.emoji}
+            </li>
           ))}
         </ul>
       </div>
-
       <div>
         <ul>
           {movieResults?.movies.map((movie : IMovie) => (
@@ -92,8 +100,7 @@ const Quiz = (props : IProps) => {
           ))}
         </ul>
       </div>
-
-
+      
 
     </>
   )
