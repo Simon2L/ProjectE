@@ -1,7 +1,5 @@
 import { FormEvent, useState } from "react";
 import { signup } from "../../authentication";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
 import './Signup.css';
 
 const Signup = () => {
@@ -16,35 +14,20 @@ const Signup = () => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h2>Signup now!</h2>
-                <TextField
-                    className="input"
-                    label="Username" 
-                    variant="standard" 
-                    onChange={e => setUsername(e.target.value)}
-                />
-                <br/>
-                <TextField
-                    className="input"
-                    label="Email" 
-                    variant="standard"
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <br/>
-                <TextField
-                    className="input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="standard"
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <br/>
-                <Button type="submit" variant="contained">Signup!</Button>
-            </form>
-        </>
+        <form onSubmit={handleSubmit}>
+            <h2>Signup now!</h2>
+
+            <label>Username</label>
+            <input onChange={e => setUsername(e.target.value)} name="Username" type="text"/>
+
+            <label>Email</label>
+            <input onChange={e => setEmail(e.target.value)} name="Email" type="email"/>
+
+            <label>Password</label>
+            <input onChange={e => setPassword(e.target.value)} name="Password" type="password"/>
+
+            <button>Signup!</button>
+        </form>
     )
 }
 

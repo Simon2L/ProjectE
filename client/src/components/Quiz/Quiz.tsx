@@ -3,7 +3,6 @@ import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
 import { addSongToFavorites, songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
-import Button from "@mui/material/Button"
 import './Quiz.css'
 
 interface IProps {
@@ -65,7 +64,6 @@ const Quiz = (props : IProps) => {
 
   const handleAddToFavorites = (song : ISong) => {
     addSongToFavorites(song)
-    setOpen(true);
   }
 
   return (
@@ -76,18 +74,18 @@ const Quiz = (props : IProps) => {
         <ul>
           {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
             <li key={index}>
-              <Button variant="contained" disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</Button>
+              <button disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
             </li>
           ))}
         </ul>
       </div>}
-      <Button variant="contained" onClick={() => console.log(answers)}>Console</Button>
+      <button onClick={() => console.log(answers)}>Console</button>
 
       <div>
         <ul>
           {songResults?.music.map((song : ISong) => (
             <li key={song.id}>
-              <Button onClick={() => handleAddToFavorites(song)}>⭐</Button>
+              <button onClick={() => handleAddToFavorites(song)}>⭐</button>
               {song.artist} {song.songName} {song.emoji}
             </li>
           ))}
