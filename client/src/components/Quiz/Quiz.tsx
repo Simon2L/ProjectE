@@ -3,7 +3,6 @@ import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
 import { addSongToFavorites, songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
-import './Quiz.css'
 
 interface IProps {
   quizQuestions : IQuiz
