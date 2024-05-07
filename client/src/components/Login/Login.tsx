@@ -1,53 +1,41 @@
 import { FormEvent, useState } from "react";
 import { login } from "../../authentication";
-import { ILoginDetails } from "../../Interfaces/ISignupDetails";
 
 
 const Login = () => {
-
-    const [signupDetails, setSignupDetails] = useState<ILoginDetails>({Email: "", Password: "" });
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const token = await login(signupDetails);
+        const token = await login({email: email, password: password})
         
+        // handle token somewhere
         if (token) {
             console.log("LOGIN SUCCESSFUL!")
-            console.log(token);
+            console.log(token)
         }
         else {
-            console.log("ILLEGAL POLICE COMING YOUR WAY")
-            console.log(token);
+            console.log("UNATHURIZED")
+            console.log(token)
         }
         //setLoggedIn(true);
-        localStorage.setItem('jwt', token);
+        localStorage.setItem('jwt', token)
 
-    }
-
-    const handleInputChange = (event : React.ChangeEvent<HTMLInputElement>) => {
-        event.preventDefault();
-
-        const { name, value } = event.target;
-        setSignupDetails(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h2>Login now!</h2>
+        <form onSubmit={handleSubmit}>
+            <h2>Login now!</h2>
 
-                <label>Email</label>
-                <input onChange={event => handleInputChange(event)} name="Email" type="email"/>
+            <label>Email</label>
+            <input onChange={e => setEmail(e.target.value)} name="Email" type="email"/>
 
-                <label>Password</label>
-                <input onChange={event => handleInputChange(event)} name="Password" type="password"/>
+            <label>Password</label>
+            <input onChange={e => setPassword(e.target.value)} name="Password" type="password"/>
 
-                <button>Login!</button>
-            </form>
-        </>
+            <button>Login!</button>
+        </form>
     )
 }
 

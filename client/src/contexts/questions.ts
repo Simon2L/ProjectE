@@ -6,15 +6,15 @@ export const musicQuestions : IQuiz = {
   questions: [
     {
       question: "Pick the set of emojis!",
-      choices: ["⚡️💭👑", "🎶💔♠️", "💉👩‍👧‍👧🎉"],
+      choices: ["🩷", "💧", "🍧"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["📺🦓🍭", "💎🤵👱‍♀️", "👞🎷🌑"],
+      choices: ["👑", "⛓️", "🥀"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["🥁👊🔍", "🪞🧱👫", "💖🌹🎸"],
+      choices: ["🪩", "💥", "🥶"],
     },
   ],
 }
@@ -24,21 +24,21 @@ export const movieQuestions : IQuiz = {
   questions: [
     {
       question: "Pick the set of emojis!",
-      choices: ["⚡️💭👑", "🎶💔♠️", "💉👩‍👧‍👧🎉"],
+      choices: ["🛰️", "🧝‍♀️", "🎤"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["📺🦓🍭", "💎🤵👱‍♀️", "👞🎷🌑"],
+      choices: ["🧑‍🎤 ", "💌", "🏆"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["🥁👊🔍", "🪞🧱👫", "💖🌹🎸"],
+      choices: ["🔍", "🩸", "😂"],
     },
   ],
 }
 
 export const gameQuestions : IQuiz = {
-  topic: "game",
+  topic: "GAME NOT IMPLEMENTED",
   questions: [
     {
       question: "Pick the set of emojis!",

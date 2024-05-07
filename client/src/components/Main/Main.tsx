@@ -7,46 +7,42 @@ const Main = () => {
   const [buttonIsPressed, setButtonIsPressed] = useState(false)
   const [questionType, setQuestionType] = useState<IQuiz>(musicQuestions)
 
-  const onButtonClick = (topic : string) => {
+  const onButtonClick = (topic: string) => {
     setButtonIsPressed(!buttonIsPressed)
-    console.log(buttonIsPressed)
-    console.log(topic)
     switch (topic) {
-        case "music":
-            setQuestionType(musicQuestions)
-            break
-        case "movie":
-            setQuestionType(movieQuestions)
-            break
-        case "game":
-            setQuestionType(gameQuestions)
-            break
-        default:
-            setQuestionType(musicQuestions)
-            break
+      case "music":
+        setQuestionType(musicQuestions)
+        break
+      case "movie":
+        setQuestionType(movieQuestions)
+        break
+      case "game":
+        setQuestionType(gameQuestions)
+        break
+      default:
+        setQuestionType(musicQuestions)
+        break
     }
   }
 
   return (
-    <>
-    {(buttonIsPressed === false) ? (
-      <div className="main">
-        <ul className="main__menu">
-          <li className="main__menu-item">
-            <button value="music" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}/>
+    <main className="flex flex-col items-center min-h-[50vh]">
+      {(buttonIsPressed === false) ? (
+        <ul className="flex flex-row list-none gap-10">
+          <li>
+            <button value="music" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎧</button>
           </li>
-          <li className="main__menu-item">
-            <button value="movie" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}/>
+          <li>
+            <button value="movie" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎮</button>
           </li>
-          <li className="main__menu-item">
-            <button value="game" className="main__menu-btn" onClick={(event) =>  onButtonClick(event.currentTarget.value)}/>
+          <li>
+            <button value="game" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🍿</button>
           </li>
         </ul>
-      </div>
-    ) : (
-    <Quiz quizQuestions={questionType}/>
-    )}
-  </>
+      ) : (
+        <Quiz quizQuestions={questionType} />
+      )}
+    </main>
   )
 }
 
