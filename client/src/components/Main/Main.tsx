@@ -35,10 +35,10 @@ const Main = () => {
             <button value="music" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎧</button>
           </li>
           <li>
-            <button value="movie" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎮</button>
+            <button value="movie" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🍿</button>
           </li>
           <li>
-            <button value="game" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🍿</button>
+            <button value="game" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎮</button>
           </li>
         </ul>
         </>
