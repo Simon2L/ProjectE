@@ -12,10 +12,10 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/' element={<Main/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/signup' element={<Signup/>} />
-        <Route path='*' element={<h1 className='text-8xl text-center'>Not Found 😭</h1>}></Route>
+        <Route path="/" element={<Main/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="*" element={<h1 className="text-8xl text-center">Not Found 😭</h1>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
