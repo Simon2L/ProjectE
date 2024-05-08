@@ -3,6 +3,7 @@ import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
 import { addSongToFavorites, songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
+import star from "../../assets/star.svg"
 
 interface IProps {
   quizQuestions : IQuiz
@@ -82,9 +83,11 @@ const Quiz = (props : IProps) => {
       <div>
         <ul className="flex flex-col list-none gap-6">
           {songResults?.music.map((song : ISong) => (
-            <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md bg-indigo-400 bg-opacity-70 text-2xl uppercase" key={song.id}>
+            <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md bg-transparent bg-opacity-70 text-2xl uppercase border-[3px] border-black" key={song.id}>
               {song.artist} {song.songName} {song.emoji}
-              <button className="hover:scale-110 ease-in duration-150 hue-rotate-90 hover:hue-rotate-0" onClick={() => handleAddToFavorites(song)}>⭐</button>
+              <button className="hover:scale-110 ease-in duration-150 hue-rotate-90 hover:hue-rotate-0" onClick={() => handleAddToFavorites(song)}>
+                <img className="max-w-[24px] max-h-[24px]"src={star}/>
+              </button>
             </li>
           ))}
         </ul>

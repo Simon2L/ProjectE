@@ -26,7 +26,7 @@ const Main = () => {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-[50vh] font-nunito text-indigo-100 text-2xl font-medium">
+    <main className="flex flex-col items-center min-h-[50vh] font-nunito text-2xl font-medium">
       {(buttonIsPressed === false) ? (
         <>
         <h4 className="mb-12">Pick emoji to start the quiz!</h4>
