@@ -81,6 +81,7 @@ const Quiz = (props: IProps) => {
 
       {songResults && <SongResults songResults={songResults} />}
       {movieResults && <MoviesResults movieResults={movieResults} />}
+
     </>
   )
 }
