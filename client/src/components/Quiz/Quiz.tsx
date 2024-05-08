@@ -3,7 +3,6 @@ import { musicQuestions } from "../../contexts/questions"
 import { IEmojiAnswers, IMovie, IMovieResult, IQuiz, ISong, ISongResult } from "../../Interfaces/interfaces"
 import { addSongToFavorites, songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
-import './Quiz.css'
 
 interface IProps {
   quizQuestions : IQuiz
@@ -70,7 +69,7 @@ const Quiz = (props : IProps) => {
     <>
     {!disableButton &&
       <div>
-        <h2 className="text-center mb-10">Pick an emoji related to: {props.quizQuestions.topic}</h2>
+        <h4 className="text-center mb-10">Pick an emoji related to: {props.quizQuestions.topic}</h4>
         <ul className="flex flex-col items-center list-none gap-6">
           {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
             <li key={index}>
