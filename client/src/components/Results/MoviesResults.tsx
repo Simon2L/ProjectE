@@ -1,16 +1,16 @@
 import { IMovie, IMovieResult } from "../../Interfaces/interfaces"
 import star from "../../assets/star.svg"
-import filledStar from "../../assets/star-filled.svg"
+import filledStar from  "../../assets/star-filled.svg"
 import { useState } from "react"
 
 interface IProps {
     movieResults: IMovieResult | undefined
 }
 const MoviesResults = (props: IProps) => {
-    const [isFavorite, setIsFavorite] = useState(true);
+    const [isFavorite, setIsFavorite] = useState(false);
     const handleAddToFavorites = (movie: IMovie) => {
         console.log(movie)
-        setIsFavorite(true)
+        setIsFavorite((previous) => !previous)
         //addMovieToFavorites(movie)
     }
 
@@ -22,7 +22,7 @@ const MoviesResults = (props: IProps) => {
                     bg-opacity-70 text-2xl uppercase border-[3px] border-black" key={movie.id}>
                         {movie.id} {movie.title} {movie.rating} {movie.emoji}
                         <button className="hover:scale-110 ease-in duration-150 hover:hue-rotate-0" onClick={() => handleAddToFavorites(movie)}>
-                            <img className="max-w-[24px] max-h-[24px]" src={filledStar} />
+                            <img className="max-w-[24px] max-h-[24px]" src={isFavorite ? filledStar : star} />
                         </button>
                     </li>
                 ))}
