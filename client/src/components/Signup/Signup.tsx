@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { signup } from "../../authentication";
-import './Signup.css';
 
 const Signup = () => {
     const [username, setUsername] = useState("")
@@ -14,19 +13,19 @@ const Signup = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Signup now!</h2>
+        <form className="flex flex-col max-w-sm justify-center items-center gap-4" onSubmit={handleSubmit}>
+            <h2 className="text-4xl">Signup now!</h2>
 
-            <label>Username</label>
-            <input onChange={e => setUsername(e.target.value)} name="Username" type="text"/>
+            <label className="text-xl mr-2">Username</label>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setUsername(e.target.value)} type="text"/>
 
-            <label>Email</label>
-            <input onChange={e => setEmail(e.target.value)} name="Email" type="email"/>
+            <label className="text-xl mr-2">Email</label>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setEmail(e.target.value)} type="email"/>
 
-            <label>Password</label>
-            <input onChange={e => setPassword(e.target.value)} name="Password" type="password"/>
+            <label className="text-xl mr-2">Password</label>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setPassword(e.target.value)} type="password"/>
 
-            <button>Signup!</button>
+            <button className="max-w-24 min-w-24 min-h-8 rounded-md bg-indigo-600 text-white hover:bg-cyan-600">Signup!</button>
         </form>
     )
 }

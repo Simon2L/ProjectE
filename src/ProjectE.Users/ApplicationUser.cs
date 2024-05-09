@@ -51,4 +51,18 @@ internal class ApplicationUser : IdentityUser
         }
         return Result.NotFound();
     }
+
+    public Result RemoveMovieFromFavorites(Guid id)
+    {
+        Guard.Against.Default(id);
+
+        var movie = _favoriteMovies.FirstOrDefault(movie => movie.Id == id);
+
+        if (movie is not null)
+        {
+            _favoriteMovies.Remove(movie);
+            return Result.Success();
+        }
+        return Result.NotFound();
+    }
 }

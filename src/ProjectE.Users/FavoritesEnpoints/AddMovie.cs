@@ -7,19 +7,19 @@ using System.Security.Claims;
 
 namespace ProjectE.Users.FavoritesEnpoints;
 
-public record AddSongRequest(Guid Id, string SongName, string Artist, string Emoji);
+public record AddMovieRequest(Guid Id, string Title, double Rating, string Emoji);
 
-internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
+internal class AddMovie(IMediator mediator) : Endpoint<AddMovieRequest>
 {
     private readonly IMediator _mediator = mediator;
 
     public override void Configure()
     {
-        Post("/favorites/song");
+        Post("/favorites/movie");
         Claims("EmailAddress");
     }
 
-    public async override Task HandleAsync(AddSongRequest req,
+    public async override Task HandleAsync(AddMovieRequest req,
         CancellationToken ct)
     {
         var emailAddress = User.FindFirstValue("EmailAddress");
@@ -29,7 +29,7 @@ internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
             await SendAsync("Email Null");
         }
 
-        var command = new AddSongToFavoritesCommand(req, emailAddress!);
+        var command = new AddMovieToFavoritesCommand(req, emailAddress!);
 
         var result = await _mediator!.Send(command);
 

@@ -2,24 +2,28 @@
 
 namespace ProjectE.Users.UseCases.Favorites;
 
-public class AddSongToFavoritesCommandValidator : AbstractValidator<AddSongToFavoritesCommand>
+public class AddMovieToFavoritesCommandValidator : AbstractValidator<AddMovieToFavoritesCommand>
 {
-    public AddSongToFavoritesCommandValidator()
+    public AddMovieToFavoritesCommandValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty()
             .WithMessage("EmailAddress is required");
 
-        RuleFor(x => x.Song.Id)
+        RuleFor(x => x.Movie.Id)
             .NotEmpty()
             .WithMessage("Not a valid SongId");
 
-        RuleFor(x => x.Song.SongName)
+        RuleFor(x => x.Movie.Title)
             .NotEmpty()
             .WithMessage("Song name cannot be empty");
 
-        RuleFor(x => x.Song.Artist)
+        RuleFor(x => x.Movie.Emoji)
             .NotEmpty()
             .WithMessage("Artist cannot be empty");
+
+        RuleFor(x => x.Movie.Rating)
+            .NotEmpty()
+            .WithMessage("Ratinmg cannot be empty");
     }
 }

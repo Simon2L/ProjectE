@@ -22,7 +22,7 @@ internal class AddSongToFavoritesHandler(IApplicationUserRepository userReposito
         }
 
         var song = new Song(request.Song.Id,
-            request.Song.Name,
+            request.Song.SongName,
             request.Song.Artist,
             request.Song.Emoji);
 

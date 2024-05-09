@@ -2,6 +2,13 @@ import { IEmojiAnswers, ISong, ISongResult } from "../Interfaces/interfaces";
 
 const BASE_URL = "https://localhost:7194"
 
+interface IAddSongToFavoritesRequest {
+  id: string
+  name: string
+  artist: string
+  emoji: string
+}
+
 export const songResult = async (emojiAnswers : IEmojiAnswers) : Promise<ISongResult>  => {
 try {
     const response = await fetch(`${BASE_URL}/music/emojis?firstEmoji=${emojiAnswers.firstEmoji}&secondEmoji=${emojiAnswers.secondEmoji}&thirdEmoji=${emojiAnswers.thirdEmoji}`, {
@@ -24,13 +31,14 @@ try {
   }
 }
 
-export const addSongToFavorites = async (song : ISong) => {
+export const addSongToFavorites = async (song : IAddSongToFavoritesRequest) => {
   try {
-    const response = await fetch(`${BASE_URL}/favorites/music`, {
+    const response = await fetch(`${BASE_URL}/favorites/song`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem("token")}`
       },
       body: JSON.stringify(song)
     })

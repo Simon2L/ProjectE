@@ -26,21 +26,27 @@ const Main = () => {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-[50vh]">
+    <main className="flex flex-col items-center min-h-[50vh] font-nunito text-2xl font-medium">
       {(buttonIsPressed === false) ? (
+        <>
+        <h4 className="mb-12">Pick emoji to start the quiz!</h4>
         <ul className="flex flex-row list-none gap-10">
           <li>
             <button value="music" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎧</button>
           </li>
           <li>
-            <button value="movie" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎮</button>
+            <button value="movie" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🍿</button>
           </li>
           <li>
-            <button value="game" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🍿</button>
+            <button value="game" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎮</button>
           </li>
         </ul>
+        </>
       ) : (
-        <Quiz quizQuestions={questionType} />
+        <>        
+          <Quiz quizQuestions={questionType} />
+          <button className=" bg-white bg-opacity-20 border-[3px] border-black p-3 rounded-lg mt-20 uppercase" onClick={() => setButtonIsPressed(false)}>Return</button>
+        </>
       )}
     </main>
   )
