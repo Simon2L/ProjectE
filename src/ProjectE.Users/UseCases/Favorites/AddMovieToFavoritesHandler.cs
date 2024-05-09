@@ -2,7 +2,7 @@
 using MediatR;
 using ProjectE.Users.FavoritesEnpoints;
 
-namespace ProjectE.Users.UseCases.Favorites.Movie;
+namespace ProjectE.Users.UseCases.Favorites;
 
 public record AddMovieToFavoritesCommand(AddMovieRequest Movie, string Email)
     : IRequest<Result>;

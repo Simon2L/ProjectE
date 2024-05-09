@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace ProjectE.Users.UseCases.Favorites.Movie;
+namespace ProjectE.Users.UseCases.Favorites;
 
 public class AddMovieToFavoritesCommandValidator : AbstractValidator<AddMovieToFavoritesCommand>
 {
