@@ -1,9 +1,15 @@
 const Footer = () => {
   return (
-    <footer className="footer">
-      <p className="footer_info">me and simon</p>
+    <footer className="flex flex-col items-end">
+      <ul>
+        <li>
+          <a href="https://github.com/Simon2L">Simon</a>
+        </li>
+        <li>
+          <a href="https://github.com/m0chimoon">M0chi</a>
+        </li>
+      </ul>
     </footer>
-    /* here supposed to be two <a></a> tags with names & links to github */
   )
 }
 

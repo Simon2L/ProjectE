@@ -13,6 +13,7 @@ internal class MovieService(IMovieRepository movieRepository) : IMovieService
             || movie.Emoji.Contains(req.SecondEmoji)
             || movie.Emoji.Contains(req.ThirdEmoji))
             .Select(movie => new MovieDto(movie.Id, movie.Title, movie.Rating, movie.Emoji))
+            .Take(5)
             .ToList();
 
         return movies;

@@ -1,53 +1,52 @@
 import { FormEvent, useState } from "react";
 import { login } from "../../authentication";
-import { ILoginDetails } from "../../Interfaces/ISignupDetails";
+import { IUser } from "../../contexts/user";
+import { useNavigate } from "react-router-dom";
 
+interface IProps {
+    setUserContext(user: IUser): void
+}
 
-const Login = () => {
+const Login = (props: IProps) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [unathorized, setUnatharized] = useState(false)
+    const [disableButton, setDisableButton] = useState(false);
+    const navigate = useNavigate()
 
-    const [signupDetails, setSignupDetails] = useState<ILoginDetails>({Email: "", Password: "" });
-
-    const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const token = await login(signupDetails);
-        
-        if (token) {
+        setDisableButton(true)
+
+        const loginSuccess = await login({ email: email, password: password })
+        console.log(loginSuccess)
+        if (loginSuccess) {
             console.log("LOGIN SUCCESSFUL!")
-            console.log(token);
+            props.setUserContext({ username: email, email: email })
+            navigate("/")
         }
         else {
-            console.log("ILLEGAL POLICE COMING YOUR WAY")
-            console.log(token);
+            console.log("UNATHURIZED")
+            setUnatharized(true)
+            setDisableButton(false);
         }
-        //setLoggedIn(true);
-        localStorage.setItem('jwt', token);
+        //localStorage.setItem('jwt', token)
 
-    }
-
-    const handleInputChange = (event : React.ChangeEvent<HTMLInputElement>) => {
-        event.preventDefault();
-
-        const { name, value } = event.target;
-        setSignupDetails(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h2>Login now!</h2>
+        <form className="flex flex-col max-w-sm justify-center items-center gap-4" onSubmit={handleSubmit}>
+            <h2 className="text-4xl">Login now!</h2>
 
-                <label>Email</label>
-                <input onChange={event => handleInputChange(event)} name="Email" type="email"/>
+            <label className="text-xl mr-2">Email</label>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setEmail(e.target.value)} type="email" />
 
-                <label>Password</label>
-                <input onChange={event => handleInputChange(event)} name="Password" type="password"/>
+            <label className="text-xl mr-2">Password</label>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setPassword(e.target.value)} type="password" />
 
-                <button>Login!</button>
-            </form>
-        </>
+            <button disabled={disableButton} className="max-w-24 min-w-24 min-h-8 rounded-md bg-indigo-600 text-white hover:bg-cyan-600">Login!</button>
+            {unathorized && <span className=" text-red-600 p-2 bg-white rounded-lg">Incorrect email or password</span>}
+        </form>
     )
 }
 

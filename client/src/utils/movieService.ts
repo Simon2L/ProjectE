@@ -26,10 +26,10 @@ try {
 
 const getMovies = () : IMovie[] => {
   return [
-      {id: "1", title: "Don't stop the Music", rating: 5, emoji: "🍭"},
-      {id: "2", title: "Levels", rating: 9, emoji: "🦓"},
-      {id: "3", title: "Poop", rating: 3, emoji: "📺"},
-      {id: "4", title: "Valorant", rating: 2, emoji: "👑"},
-      {id: "5", title: "What am I even typing", rating: 1, emoji: "⚡️💭"},
+      {id: "1", title: "Movie", rating: 5, emoji: "🍭"},
+      {id: "2", title: "Num 2", rating: 9, emoji: "🦓"},
+      {id: "3", title: "This is a movie", rating: 3, emoji: "📺"},
+      {id: "4", title: "Something", rating: 2, emoji: "👑"},
+      {id: "5", title: "Hello movie", rating: 1, emoji: "⚡️💭"},
   ]
 }
