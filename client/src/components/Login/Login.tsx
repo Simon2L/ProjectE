@@ -1,15 +1,23 @@
 import { FormEvent, useState } from "react";
 import { login } from "../../authentication";
+import { IUser } from "../../contexts/user";
+import { useNavigate } from "react-router-dom";
 
+interface IProps {
+    setUserContext(user : IUser) : void
+}
 
-const Login = () => {
+const Login = (props: IProps) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate();
 
     const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const token = await login({email: email, password: password})
-        
+        // const token = await login({email: email, password: password})
+        props.setUserContext({username: email, email: email})
+        navigate("/");
+        const token =  true;
         // handle token somewhere
         if (token) {
             console.log("LOGIN SUCCESSFUL!")
@@ -19,8 +27,7 @@ const Login = () => {
             console.log("UNATHURIZED")
             console.log(token)
         }
-        //setLoggedIn(true);
-        localStorage.setItem('jwt', token)
+        //localStorage.setItem('jwt', token)
 
     }
 

@@ -9,10 +9,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import CurrentUserContext, { IUser } from './contexts/user'
 import { useState } from 'react'
-import { login } from './authentication'
 
 function App() {
   const [currentUser, setCurrentUser] = useState<IUser>()
+
+  const setUserContext = (user: IUser) => {
+    setCurrentUser(user);
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -21,7 +24,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/login" element={<Login  />} />
+          <Route path="/login" element={<Login setUserContext={setUserContext} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path="*" element={<h1 className="text-8xl text-center">Not Found 😭</h1>}></Route>
