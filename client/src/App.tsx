@@ -7,22 +7,28 @@ import Favorites from './components/Favorites/Favorites'
 import Footer from './components/Footer/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
+import CurrentUserContext, { IUser } from './contexts/user'
+import { useState } from 'react'
+import { login } from './authentication'
 
 function App() {
+  const [currentUser, setCurrentUser] = useState<IUser>()
 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path='/favorites' element={<Favorites />} />
-        <Route path="*" element={<h1 className="text-8xl text-center">Not Found 😭</h1>}></Route>
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <CurrentUserContext.Provider value={currentUser}>
+      <BrowserRouter>
+        <Navbar />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login  />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path='/favorites' element={<Favorites />} />
+          <Route path="*" element={<h1 className="text-8xl text-center">Not Found 😭</h1>}></Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CurrentUserContext.Provider>
   )
 }
 
