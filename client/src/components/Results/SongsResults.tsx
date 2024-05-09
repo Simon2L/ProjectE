@@ -11,7 +11,7 @@ const SongsResults = (props: IProps) => {
   const songResults = props.songResults
 
   const handleAddToFavorites = (song: ISong) => {
-    //addSongToFavorites(song)
+    addSongToFavorites({id: song.id, name: song.songName, artist: song.artist, emoji: song.emoji})
     console.log(song);
   }
 
