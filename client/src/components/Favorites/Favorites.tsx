@@ -15,8 +15,7 @@ const Favorites = () => {
             <h2 className="text-3xl mb-4">Your favorite Music!</h2>
                 <ul className="flex flex-col list-none gap-6">
                     {favorites?.music.map((song: ISong) => (
-                        <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md 
-              bg-transparent bg-opacity-70 text-2xl uppercase border-[3px] border-black" key={song.id}>
+                        <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase  bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={song.id}>
                             {song.artist} {song.songName} {song.emoji}
                             {/* <button className="hover:scale-110 ease-in duration-150 hover:hue-rotate-0" onClick={() => handleAddToFavorites(song)}>
                 <img className="max-w-[24px] max-h-[24px]" src={star} />
@@ -29,8 +28,7 @@ const Favorites = () => {
                 <h2 className="text-3xl mb-4">Your favorite Movies!</h2>
                 <ul className="flex flex-col list-none gap-6">
                     {favorites?.movies?.map((movie: IMovie) => (
-                        <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md bg-transparent
-                    bg-opacity-70 text-2xl uppercase border-[3px] border-black" key={movie.id}>
+                        <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase  bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={movie.id}>
                             {movie.id} {movie.title} {movie.rating} {movie.emoji}
                             {/* <button className="hover:scale-110 ease-in duration-150 hover:hue-rotate-0" onClick={() => handleAddToFavorites(movie)}>
                             <img className="max-w-[24px] max-h-[24px]" src={isFavorite ? filledStar : star} />
