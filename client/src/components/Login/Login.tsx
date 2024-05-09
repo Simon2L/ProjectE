@@ -4,28 +4,31 @@ import { IUser } from "../../contexts/user";
 import { useNavigate } from "react-router-dom";
 
 interface IProps {
-    setUserContext(user : IUser) : void
+    setUserContext(user: IUser): void
 }
 
 const Login = (props: IProps) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const navigate = useNavigate();
+    const [unathorized, setUnatharized] = useState(false)
+    const [disableButton, setDisableButton] = useState(false);
+    const navigate = useNavigate()
 
-    const handleSubmit = async (event : FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // const token = await login({email: email, password: password})
-        props.setUserContext({username: email, email: email})
-        navigate("/");
-        const token =  true;
-        // handle token somewhere
-        if (token) {
+        setDisableButton(true)
+
+        const loginSuccess = await login({ email: email, password: password })
+        console.log(loginSuccess)
+        if (loginSuccess) {
             console.log("LOGIN SUCCESSFUL!")
-            console.log(token)
+            props.setUserContext({ username: email, email: email })
+            navigate("/")
         }
         else {
             console.log("UNATHURIZED")
-            console.log(token)
+            setUnatharized(true)
+            setDisableButton(false);
         }
         //localStorage.setItem('jwt', token)
 
@@ -36,12 +39,13 @@ const Login = (props: IProps) => {
             <h2 className="text-4xl">Login now!</h2>
 
             <label className="text-xl mr-2">Email</label>
-            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setEmail(e.target.value)} type="email"/>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setEmail(e.target.value)} type="email" />
 
             <label className="text-xl mr-2">Password</label>
-            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setPassword(e.target.value)} type="password"/>
+            <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setPassword(e.target.value)} type="password" />
 
-            <button className="max-w-24 min-w-24 min-h-8 rounded-md bg-indigo-600 text-white hover:bg-cyan-600">Login!</button>
+            <button disabled={disableButton} className="max-w-24 min-w-24 min-h-8 rounded-md bg-indigo-600 text-white hover:bg-cyan-600">Login!</button>
+            {unathorized && <span className=" text-red-600 p-2 bg-white rounded-lg">Incorrect email or password</span>}
         </form>
     )
 }
