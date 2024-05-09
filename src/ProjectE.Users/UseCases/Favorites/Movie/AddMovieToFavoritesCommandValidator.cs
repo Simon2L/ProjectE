@@ -12,18 +12,18 @@ public class AddMovieToFavoritesCommandValidator : AbstractValidator<AddMovieToF
 
         RuleFor(x => x.Movie.Id)
             .NotEmpty()
-            .WithMessage("Not a valid SongId");
+            .WithMessage("Not a valid MovieId");
 
         RuleFor(x => x.Movie.Title)
             .NotEmpty()
-            .WithMessage("Song name cannot be empty");
+            .WithMessage("Movie name cannot be empty");
 
         RuleFor(x => x.Movie.Emoji)
             .NotEmpty()
-            .WithMessage("Artist cannot be empty");
+            .WithMessage("Emoji cannot be empty");
 
         RuleFor(x => x.Movie.Rating)
             .NotEmpty()
-            .WithMessage("Ratinmg cannot be empty");
+            .WithMessage("Rating cannot be empty");
     }
 }

@@ -3,13 +3,13 @@ using MediatR;
 
 namespace ProjectE.Users.UseCases.Favorites;
 
-internal record RemoveMovieFromFavoritesCommand(Guid Id, string Email) : IRequest<Result>;
-internal class RemoveMovieFromFavoritesHandler(IApplicationUserRepository userRepository) : 
-    IRequestHandler<RemoveMovieFromFavoritesCommand, Result>
+internal record RemoveGameFromFavoritesCommand(Guid Id, string Email) : IRequest<Result>;
+internal class RemoveGameFromFavoritesHandler(IApplicationUserRepository userRepository) :
+    IRequestHandler<RemoveGameFromFavoritesCommand, Result>
 {
     private readonly IApplicationUserRepository _userRepository = userRepository;
 
-    public async Task<Result> Handle(RemoveMovieFromFavoritesCommand request, 
+    public async Task<Result> Handle(RemoveGameFromFavoritesCommand request,
         CancellationToken ct)
     {
         var user = await _userRepository.GetUserWithFavoritesByEmailAddress(request.Email);
@@ -19,7 +19,7 @@ internal class RemoveMovieFromFavoritesHandler(IApplicationUserRepository userRe
             return Result.Unauthorized();
         }
 
-        var result = user.RemoveMovieFromFavorites(request.Id);
+        var result = user.RemoveGameFromFavorites(request.Id);
 
         if (result.Status == ResultStatus.NotFound)
         {
