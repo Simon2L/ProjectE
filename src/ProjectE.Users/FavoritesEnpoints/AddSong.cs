@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace ProjectE.Users.FavoritesEnpoints;
 
-public record AddSongRequest(Guid Id, string Name, string Artist, string Emoji);
+public record AddSongRequest(Guid Id, string SongName, string Artist, string Emoji);
 
 internal class AddSong(IMediator mediator) : Endpoint<AddSongRequest>
 {
