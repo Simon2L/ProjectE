@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ProjectE.Games.Data;
 
-public class GameConfiguration : IEntityTypeConfiguration<Game>
+internal class GameConfiguration : IEntityTypeConfiguration<Game>
 {
-    void IEntityTypeConfiguration<Game>.Configure(EntityTypeBuilder<Game> builder)
+    public void Configure(EntityTypeBuilder<Game> builder)
     {
         builder.Property(g => g.Name)
             .HasMaxLength(100)
@@ -15,5 +15,12 @@ public class GameConfiguration : IEntityTypeConfiguration<Game>
             .IsRequired();
         builder.Property(g => g.Rating)
             .IsRequired();
+
+        builder.HasData(GetGames());
+    }
+
+    public static IEnumerable<Game> GetGames()
+    {
+        yield return new Game(Guid.Parse("GUID"), "GAME NAME", 1, "Emoji");
     }
 }
