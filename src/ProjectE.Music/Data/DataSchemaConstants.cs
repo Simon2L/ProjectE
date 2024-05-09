@@ -3,5 +3,5 @@
 public static class DataSchemaConstants
 {
     public const int DEFAULT_NAME_LENGTH = 100;
-    public const int DEFAULT_GENRE_LENGTH = 50;
+    public const int DEFAULT_EMOJI_LENGTH = 50;
 }

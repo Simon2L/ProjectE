@@ -6,6 +6,7 @@ import { movieResult } from "../../utils/movieService"
 import SongResults from "../Results/SongsResults"
 import MoviesResults from "../Results/MoviesResults"
 
+
 interface IProps {
   quizQuestions: IQuiz
 }

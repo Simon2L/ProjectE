@@ -9,8 +9,5 @@ internal class SongConfiguration : IEntityTypeConfiguration<Song>
     {
         builder.Property(item => item.Id)
             .ValueGeneratedNever();
-
-        builder.Property(item => item.Emoji)
-            .IsUnicode();
     }
 }
