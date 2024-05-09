@@ -16,6 +16,7 @@ const Navbar = () => {
             <>
             <Link className="px-2 py-1 shadow-[0_7px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/">Home</Link>
             <Link className="px-2 py-1 shadow-[0_7px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/favorites">Favorites</Link>
+            <h2>Welcome {user.username}!</h2>
             </>
           )}
         </div>
