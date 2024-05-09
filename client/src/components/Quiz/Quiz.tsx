@@ -68,10 +68,10 @@ const Quiz = (props: IProps) => {
       {!disableButton &&
         <div>
           <h4 className="text-center mb-10">Pick an emoji related to: {props.quizQuestions.topic}</h4>
-          <ul className="flex flex-col items-center list-none gap-6">
+          <ul className="flex flex-row list-none gap-10">
             {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
               <li key={index}>
-                <button className="text-7xl hover:scale-110 ease-in duration-150" 
+                <button className="text-8xl hover:scale-110 ease-in duration-150" 
                 disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
               </li>
             ))}

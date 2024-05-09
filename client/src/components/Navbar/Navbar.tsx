@@ -1,13 +1,22 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Navbar = () => {
- //bg-indigo-600 text-white
+    const [loggedIn, setIsLoggedIn] = useState(true)
+
     return (
-        <div className="flex gap-6 text-3xl p-3 bg-gradient-to-r from-purple-600 to-orange-300 text-white">
-            <Link className="ml-2" to="/">Home</Link>
-            <Link to="/favorites">Favorites</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+        <div className="flex gap-6 text-xl p-3 font-nunito uppercase font-bold">
+          {(loggedIn === false) ? (
+            <>
+            <Link className="px-2 py-1 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/login">Login</Link>
+            <Link className="px-2 py-1 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/signup">Signup</Link>
+            </>
+          ) : (
+            <>
+            <Link className="px-2 py-1 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/">Home</Link>
+            <Link className="px-2 py-1 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" to="/favorites">Favorites</Link>
+            </>
+          )}
         </div>
     )
 }

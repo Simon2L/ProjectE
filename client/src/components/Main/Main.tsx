@@ -45,7 +45,7 @@ const Main = () => {
       ) : (
         <>        
           <Quiz quizQuestions={questionType} />
-          <button className="bg-indigo-700 text-white p-3 rounded-lg mt-20" onClick={() => setButtonIsPressed(false)}>Back to quiz menu</button>
+          <button className="bg-transparent border-[3px] border-black p-3 rounded-lg mt-20 uppercase" onClick={() => setButtonIsPressed(false)}>Return</button>
         </>
       )}
     </main>
