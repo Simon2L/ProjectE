@@ -29,6 +29,7 @@ export const getAllFavorites = async () : Promise<IFavorites> => {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem("token")}`
           },
         })
         if(response) {
