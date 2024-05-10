@@ -72,7 +72,7 @@ const Quiz = (props: IProps) => {
     <>
       {!disableButton &&
         <div>
-          <h4 className="text-center mb-10">Pick an emoji related to: {props.quizQuestions.topic}</h4>
+          <h4 className="text-center mb-10">Pick an emoji related to: {props.quizQuestions.topic}😱</h4>
           <ul className="flex flex-row list-none gap-10">
             {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
               <li key={index}>
