@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { IFavorites, getAllFavorites } from "../../utils/favoritesService"
-import { IMovie, ISong } from "../../Interfaces/interfaces"
+import { IGame, IMovie, ISong } from "../../Interfaces/interfaces"
 
 const Favorites = () => {
     const [favorites, setFavorites] = useState<IFavorites>()
@@ -37,6 +37,16 @@ const Favorites = () => {
                     ))}
                 </ul>
             </div>
+            <div>
+            <ul className="flex flex-col list-none gap-6">
+                {favorites?.games.map((game: IGame) => (
+                    <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={game.id}>
+                        {game.id} {game.name} {game.publishYear} {game.emoji}
+                        {/* <StarButton handleAddToFavorits={handleAddToFavorites} add={game} /> */}
+                    </li>
+                ))}
+            </ul>
+        </div>
         </div>
     )
 }
