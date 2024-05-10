@@ -7,6 +7,7 @@ import { gameResult } from "../../utils/gamesService"
 import SongResults from "../Results/SongsResults"
 import MoviesResults from "../Results/MoviesResults"
 import GamesResults from "../Results/GamesResults"
+import QuizResultsSkeleton from "../Skeletons/QuizResultSkeleton"
 
 
 interface IProps {
@@ -43,7 +44,7 @@ const Quiz = (props: IProps) => {
           .then(result => setMovieResults(result))
         break
       case "game":
-        gameResult({ ...answers, thirdEmoji: selectedAnswer})
+        gameResult({ ...answers, thirdEmoji: selectedAnswer })
           .then(result => setGameResults(result))
         break
       default:
@@ -79,8 +80,8 @@ const Quiz = (props: IProps) => {
           <ul className="flex flex-row list-none gap-10">
             {props.quizQuestions.questions[currentQuestion].choices.map((choice, index) => (
               <li key={index}>
-                <button className="text-8xl hover:scale-110 ease-in duration-150" 
-                disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
+                <button className="text-8xl hover:scale-110 ease-in duration-150"
+                  disabled={disableButton} value={choice} onClick={() => handleAnswerSelection(choice)}>{choice}</button>
               </li>
             ))}
           </ul>
@@ -89,8 +90,10 @@ const Quiz = (props: IProps) => {
 
       {songResults && <SongResults songResults={songResults} />}
       {movieResults && <MoviesResults movieResults={movieResults} />}
-      {gameResults && <GamesResults gameResults={gameResults}/>}
-
+      {gameResults && <GamesResults gameResults={gameResults} />}
+      {disableButton && !songResults && !movieResults && !gameResults &&
+        <QuizResultsSkeleton />
+      }
     </>
   )
 }
