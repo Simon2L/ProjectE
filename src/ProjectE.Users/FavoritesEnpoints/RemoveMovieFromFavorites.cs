@@ -14,7 +14,7 @@ internal class RemoveMovieFromFavorites(IMediator mediator) :
 
     public override void Configure()
     {
-        Delete("favorites/song/{id}");
+        Delete("favorites/movie/{id}");
         Claims("EmailAddress");
     }
 
