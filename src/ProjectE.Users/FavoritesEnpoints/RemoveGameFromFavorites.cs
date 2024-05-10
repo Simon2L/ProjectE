@@ -6,19 +6,19 @@ using System.Security.Claims;
 
 namespace ProjectE.Users.FavoritesEnpoints;
 
-internal record RemoveMovieFromFavoritesRequest(Guid Id);
-internal class RemoveMovieFromFavorites(IMediator mediator) :
-    Endpoint<RemoveMovieFromFavoritesRequest>
+internal record RemoveGameFromFavoritesRequest(Guid Id);
+internal class RemoveGameFromFavorites(IMediator mediator) :
+    Endpoint<RemoveGameFromFavoritesRequest>
 {
     private readonly IMediator _mediator = mediator;
 
     public override void Configure()
     {
-        Delete("favorites/movie/{id}");
+        Delete("favorites/game/{id}");
         Claims("EmailAddress");
     }
 
-    public override async Task HandleAsync(RemoveMovieFromFavoritesRequest req,
+    public override async Task HandleAsync(RemoveGameFromFavoritesRequest req,
         CancellationToken ct)
     {
         var emailAddress = User.FindFirstValue("EmailAddress");
@@ -29,7 +29,7 @@ internal class RemoveMovieFromFavorites(IMediator mediator) :
             return;
         }
 
-        var command = new RemoveMovieFromFavoritesCommand(req.Id, emailAddress);
+        var command = new RemoveGameFromFavoritesCommand(req.Id, emailAddress);
 
         var result = await _mediator.Send(command);
 

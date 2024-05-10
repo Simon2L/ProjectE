@@ -7,7 +7,7 @@ namespace ProjectE.Users.UseCases.Favorites;
 public record AddSongToFavoritesCommand(AddSongRequest Song, string Email)
     : IRequest<Result>;
 
-internal class AddSongToFavoritesHandler(IApplicationUserRepository userRepository) 
+internal class AddSongToFavoritesHandler(IApplicationUserRepository userRepository)
     : IRequestHandler<AddSongToFavoritesCommand, Result>
 {
     private readonly IApplicationUserRepository _userRepository = userRepository;

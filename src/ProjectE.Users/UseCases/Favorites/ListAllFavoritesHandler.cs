@@ -7,10 +7,12 @@ internal record FavoritesDto
 {
     public List<SongDto> Music { get; set; } = [];
     public List<MovieDto> Movies { get; set; } = [];
+    public List<GameDto> Games { get; set; } = [];
 }
 
 public record SongDto(Guid Id, string Name, string Artist, string Emoji);
 public record MovieDto(Guid Id, string Title, double Rating, string Emoji);
+public record GameDto(Guid Id, string Name, double Rating, string Emoji);
 
 internal record ListAllFavoritesQuery(string Email)
     : IRequest<Result<FavoritesDto>>;
@@ -38,10 +40,15 @@ internal class ListAllFavoritesHandler(IApplicationUserRepository userRepository
             .Select(item => new MovieDto(item.Id, item.Title, item.Rating, item.Emoji))
             .ToList();
 
+        var favoriteGames = user.FavoriteGames
+            .Select(item => new GameDto(item.Id, item.Name, item.Rating, item.Emoji))
+            .ToList();
+
         return new FavoritesDto
         {
             Music = favoriteMusic,
-            Movies = favoriteMovies
+            Movies = favoriteMovies,
+            Games = favoriteGames
         };
     }
 }
