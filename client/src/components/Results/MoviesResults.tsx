@@ -6,7 +6,7 @@ interface IProps {
 }
 const MoviesResults = (props: IProps) => {
     const handleAddToFavorites = (movie: IMovie) => {
-
+        movie
     }
     return (
         <div>

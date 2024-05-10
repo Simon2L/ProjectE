@@ -7,7 +7,7 @@ interface IProps {
 }
 const GamesResults = (props: IProps) => {
     const handleAddToFavorites = (game: IGame) => {
-
+        game
     }
     return (
         <div>
