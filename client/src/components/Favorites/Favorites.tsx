@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { IFavorites, getAllFavorites } from "../../utils/favoritesService"
 import { IGame, IMovie, ISong } from "../../Interfaces/interfaces"
+import QuizResultsSkeleton from "../Skeletons/QuizResultSkeleton"
 
 const Favorites = () => {
     const [favorites, setFavorites] = useState<IFavorites>()
@@ -12,7 +13,8 @@ const Favorites = () => {
     return (
         <div className=" flex flex-col items-center gap-10">
             <div>
-            <h2 className="text-3xl mb-4">Your favorite Music!</h2>
+                <h2 className="text-3xl mb-4">Your favorite Music!</h2>
+                {favorites === undefined && <QuizResultsSkeleton/>}
                 <ul className="flex flex-col list-none gap-6">
                     {favorites?.music.map((song: ISong) => (
                         <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase  bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={song.id}>
@@ -26,6 +28,7 @@ const Favorites = () => {
             </div>
             <div>
                 <h2 className="text-3xl mb-4">Your favorite Movies!</h2>
+                {favorites === undefined && <QuizResultsSkeleton/>}
                 <ul className="flex flex-col list-none gap-6">
                     {favorites?.movies?.map((movie: IMovie) => (
                         <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase  bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={movie.id}>
@@ -38,15 +41,17 @@ const Favorites = () => {
                 </ul>
             </div>
             <div>
-            <ul className="flex flex-col list-none gap-6">
-                {favorites?.games.map((game: IGame) => (
-                    <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={game.id}>
-                        {game.id} {game.name} {game.publishYear} {game.emoji}
-                        {/* <StarButton handleAddToFavorits={handleAddToFavorites} add={game} /> */}
-                    </li>
-                ))}
-            </ul>
-        </div>
+                <ul className="flex flex-col list-none gap-6">
+                <h2 className="text-3xl mb-4">Your favorite Games!</h2>
+                {favorites === undefined && <QuizResultsSkeleton/>}
+                    {favorites?.games.map((game: IGame) => (
+                        <li className="flex justify-between items-center min-w-[600px] px-4 py-2 gap-4 w-60 h-16 rounded-md text-2xl uppercase bg-white bg-opacity-20 shadow-[0_4px_0_rgb(0,0,0)]" key={game.id}>
+                            {game.id} {game.name} {game.publishYear} {game.emoji}
+                            {/* <StarButton handleAddToFavorits={handleAddToFavorites} add={game} /> */}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

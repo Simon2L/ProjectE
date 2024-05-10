@@ -12,7 +12,7 @@ const SongsResults = (props: IProps) => {
 
   const handleAddToFavorites = (song: ISong) => {
     addSongToFavorites({id: song.id, name: song.songName, artist: song.artist, emoji: song.emoji})
-    console.log(song);
+
   }
 
   return (
