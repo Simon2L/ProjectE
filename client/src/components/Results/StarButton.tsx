@@ -1,10 +1,10 @@
-import { IMovie, ISong } from "../../Interfaces/interfaces"
+import { IGame, IMovie, ISong } from "../../Interfaces/interfaces"
 import star from "../../assets/star.svg"
 import filledStar from  "../../assets/filledstar.svg"
 import { useState } from "react"
 
 interface IProps {
-    add : IMovie | ISong //| IGame
+    add : IMovie | ISong | IGame
     handleAddToFavorits(add: unknown) : void
 }
 

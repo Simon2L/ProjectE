@@ -1,10 +1,11 @@
-import { IMovie, ISong } from "../Interfaces/interfaces"
+import { IGame, IMovie, ISong } from "../Interfaces/interfaces"
 
 const BASE_URL = "https://localhost:7194"
 
 export interface IFavorites {
     movies: IMovie[],
-    music: ISong[]
+    music: ISong[],
+    games: IGame[]
 }
 
 // const emptyFavorites : IFavorites = {movies: [], music: []}
@@ -20,7 +21,13 @@ const sampleFavorites : IFavorites = {
         {id: "3", title: "This is a movie", rating: 3, emoji: "📺"},
         {id: "4", title: "Something", rating: 2, emoji: "👑"},
         {id: "5", title: "Hello movie", rating: 1, emoji: "⚡️💭"}
+    ],
+    games: [
+      {id: "1", name: "Game", publishYear: 2024, emoji: "🍭"},
+      {id: "2", name: "Mario", publishYear: 2021, emoji: "🦓"},
+      {id: "3", name: "Game 3", publishYear: 2018, emoji: "📺"},
     ]
+
 }
 
 export const getAllFavorites = async () : Promise<IFavorites> => {

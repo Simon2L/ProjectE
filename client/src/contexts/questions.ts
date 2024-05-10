@@ -38,19 +38,19 @@ export const movieQuestions : IQuiz = {
 }
 
 export const gameQuestions : IQuiz = {
-  topic: "GAME NOT IMPLEMENTED",
+  topic: "games",
   questions: [
     {
       question: "Pick the set of emojis!",
-      choices: ["⚡️💭👑", "🎶💔♠️", "💉👩‍👧‍👧🎉"],
+      choices: ["🌄", "🐸", "🌦️"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["📺🦓🍭", "💎🤵👱‍♀️", "👞🎷🌑"],
+      choices: ["👻", "🃏", "💀"],
     },
     {
       question: "Pick the set of emojis!",
-      choices: ["🥁👊🔍", "🪞🧱👫", "💖🌹🎸"],
+      choices: ["🫶", "💟", "🥲"],
     },
   ],
 }

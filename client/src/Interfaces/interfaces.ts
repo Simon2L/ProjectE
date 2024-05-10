@@ -33,3 +33,13 @@ export interface IMovie {
   emoji: string
 }
 
+export interface IGame {
+  id: string,
+  name: string,
+  publishYear: number,
+  emoji: string
+}
+
+export interface IGameResult {
+  games: IGame[]
+}

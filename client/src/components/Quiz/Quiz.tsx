@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { musicQuestions } from "../../contexts/questions"
-import { IEmojiAnswers, IMovieResult, IQuiz, ISongResult } from "../../Interfaces/interfaces"
+import { IEmojiAnswers, IMovieResult, IQuiz, ISongResult, IGameResult } from "../../Interfaces/interfaces"
 import { songResult } from "../../utils/musicService"
 import { movieResult } from "../../utils/movieService"
+import { gameResult } from "../../utils/gamesService"
 import SongResults from "../Results/SongsResults"
 import MoviesResults from "../Results/MoviesResults"
+import GamesResults from "../Results/GamesResults"
 
 
 interface IProps {
@@ -18,6 +20,7 @@ const Quiz = (props: IProps) => {
 
   const [songResults, setSongsResults] = useState<ISongResult>()
   const [movieResults, setMovieResults] = useState<IMovieResult>()
+  const [gameResults, setGameResults] = useState<IGameResult>()
 
   const handleNextQuestion = (selectedAnswer: string) => {
     const nextQuestion = currentQuestion + 1
@@ -38,6 +41,10 @@ const Quiz = (props: IProps) => {
       case "movie":
         movieResult({ ...answers, thirdEmoji: selectedAnswer })
           .then(result => setMovieResults(result))
+        break
+      case "game":
+        gameResult({ ...answers, thirdEmoji: selectedAnswer})
+          .then(result => setGameResults(result))
         break
       default:
         songResult({ ...answers, thirdEmoji: selectedAnswer })
@@ -82,6 +89,7 @@ const Quiz = (props: IProps) => {
 
       {songResults && <SongResults songResults={songResults} />}
       {movieResults && <MoviesResults movieResults={movieResults} />}
+      {gameResults && <GamesResults gameResults={gameResults}/>}
 
     </>
   )
