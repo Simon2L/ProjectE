@@ -19,14 +19,11 @@ const Login = (props: IProps) => {
         setDisableButton(true)
 
         const loginSuccess = await login({ email: email, password: password })
-        console.log(loginSuccess)
         if (loginSuccess) {
-            console.log("LOGIN SUCCESSFUL!")
             props.setUserContext({ username: email, email: email })
             navigate("/")
         }
         else {
-            console.log("UNATHURIZED")
             setUnatharized(true)
             setDisableButton(false);
         }

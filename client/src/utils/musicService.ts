@@ -43,14 +43,11 @@ export const addSongToFavorites = async (song : IAddSongToFavoritesRequest) => {
       body: JSON.stringify(song)
     })
     if(response) {
-      console.log("Song was added to favorites")
     }
     else {
-      console.error("Song was not added to favorites")
     }
   }
   catch {
-    console.error("Something unexpected happened /(server side not online)")
   }
 } 
 

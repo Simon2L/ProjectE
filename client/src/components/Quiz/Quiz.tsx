@@ -32,7 +32,6 @@ const Quiz = (props: IProps) => {
   }
 
   const getResults = (selectedAnswer: string) => {
-    console.log(props.quizQuestions.topic)
     // TODO: GET RID OF HORRIBLE ANSWERS STUFF
     switch (props.quizQuestions.topic) {
       case "music":
@@ -65,9 +64,6 @@ const Quiz = (props: IProps) => {
       ...prevState,
       [names[currentQuestion]]: selectedAnswer
     }));
-
-    console.log(answers)
-    console.log(selectedAnswer)
 
     handleNextQuestion(selectedAnswer)
   }
