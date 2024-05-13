@@ -20,4 +20,8 @@
 	  <Folder Include="Data\Migrations\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ProjectE.Users.Contracts\ProjectE.Users.Contracts.csproj" />
+	</ItemGroup>
+
 </Project>
