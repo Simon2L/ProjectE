@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-end">
+    <footer className="flex flex-col items-end font-nunito">
       <ul>
         <li>
           <a href="https://github.com/Simon2L">Simon</a>
