@@ -4,7 +4,7 @@ const BASE_URL = "https://localhost:7194"
 
 interface IAddSongToFavoritesRequest {
   id: string
-  name: string
+  songName: string
   artist: string
   emoji: string
 }
