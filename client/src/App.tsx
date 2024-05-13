@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import CurrentUserContext, { IUser } from './contexts/user'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [currentUser, setCurrentUser] = useState<IUser>()
@@ -17,10 +17,23 @@ function App() {
     setCurrentUser(user);
   }
 
+  useEffect(() => {
+    if (sessionStorage.getItem("email") && sessionStorage.getItem("username")) {
+      setCurrentUser({username: sessionStorage.getItem("email") ?? undefined, email: sessionStorage.getItem("email") ?? undefined})
+    }
+  },[])
+
+  const logout = () => {
+    console.log(currentUser);
+    setCurrentUser(undefined)
+    sessionStorage.clear();
+  }
+  
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar logout={logout}/>
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />

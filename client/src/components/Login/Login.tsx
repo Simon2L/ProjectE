@@ -21,6 +21,8 @@ const Login = (props: IProps) => {
         const loginSuccess = await login({ email: email, password: password })
         if (loginSuccess) {
             props.setUserContext({ username: email, email: email })
+            sessionStorage.setItem("email", email)
+            sessionStorage.setItem("username", email)
             navigate("/")
         }
         else {
