@@ -26,11 +26,10 @@ const Main = () => {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-[50vh] font-nunito text-2xl font-medium">
+    <main className="flex flex-col items-center min-h-[50vh] font-nunito uppercase text-xl font-bold">
       {(buttonIsPressed === false) ? (
         <>
-        <h4 className="mb-1 lowercase tracking-tigher">Pick emoji to start the quiz</h4>
-        <p className="mb-14 cursor-default hover:scale-110 ease-in duration-150">⬇️</p>
+        <h4 className="mb-14">Pick emoji to start the quiz</h4>
         <ul className="flex flex-row list-none gap-10">
           <li>
             <button value="music" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎧</button>
@@ -46,7 +45,7 @@ const Main = () => {
       ) : (
         <>        
           <Quiz quizQuestions={questionType} />
-          <button className=" bg-white bg-opacity-20 border-[3px] border-black p-3 rounded-lg mt-20 uppercase" onClick={() => setButtonIsPressed(false)}>Return 🙅</button>
+          <button className="mt-14 uppercase text-lg px-3 py-1 shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" onClick={() => setButtonIsPressed(false)}>Return🙅</button>
         </>
       )}
     </main>
