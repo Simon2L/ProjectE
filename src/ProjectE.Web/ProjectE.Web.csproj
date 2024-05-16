@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectE.Games\ProjectE.Games.csproj" />
     <ProjectReference Include="..\ProjectE.Movies\ProjectE.Movies.csproj" />
     <ProjectReference Include="..\ProjectE.Music\ProjectE.Music.csproj" />
     <ProjectReference Include="..\ProjectE.Users\ProjectE.Users.csproj" />

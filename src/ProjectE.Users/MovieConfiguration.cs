@@ -7,7 +7,7 @@ internal class MovieConfiguration : IEntityTypeConfiguration<Movie>
 {
     public void Configure(EntityTypeBuilder<Movie> builder)
     {
-        builder.Property(item => item.Id)
+        builder.Property(item => item.MovieId)
             .ValueGeneratedNever();
     }
 }
