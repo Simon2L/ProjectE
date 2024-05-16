@@ -4,27 +4,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ProjectE.Users;
 
-internal class Game
-{
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Name { get; set; } = string.Empty;
-    public double Rating { get; set; }
-    public string Emoji { get; set; } = string.Empty;
-
-    public Game(Guid id, string title, double rating, string emoji)
-    {
-        Id = Guard.Against.Default(id);
-        Name = Guard.Against.NullOrEmpty(title);
-        Rating = Guard.Against.NegativeOrZero(rating);
-        Emoji = Guard.Against.NullOrEmpty(emoji);
-    }
-
-    public Game()
-    {
-        // for EF
-    }
-}
-
 internal class ApplicationUser : IdentityUser
 {
     private readonly List<Song> _favoriteSongs = [];
