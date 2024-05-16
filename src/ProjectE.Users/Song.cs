@@ -18,4 +18,8 @@ internal class Song
         Emoji = Guard.Against.NullOrEmpty(emoji);
     }
 
+    public Song()
+    {
+        // for ef
+    }
 }

@@ -18,7 +18,7 @@ internal class ApplicationUser : IdentityUser
     public void AddSongToFavorites(Song song)
     {
         Guard.Against.Null(song);
-        var existingSong = _favoriteSongs.FirstOrDefault(s => s.Id == song.Id);
+        var existingSong = _favoriteSongs.FirstOrDefault(s => s.SongId == song.SongId);
         if (existingSong is not null)
         {
             return;
@@ -27,9 +27,9 @@ internal class ApplicationUser : IdentityUser
     }
 
     public void AddMovieToFavorites(Movie movie) 
-    { 
+    {
         Guard.Against.Null(movie);
-        var existingMovie = _favoriteSongs.FirstOrDefault(m => m.Id == m.Id);
+        var existingMovie = _favoriteMovies.FirstOrDefault(m => m.MovieId == m.MovieId);
         if (existingMovie is not null)
         {
             return;

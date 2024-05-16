@@ -7,7 +7,7 @@ internal class SongConfiguration : IEntityTypeConfiguration<Song>
 {
     public void Configure(EntityTypeBuilder<Song> builder)
     {
-        builder.Property(item => item.SongId)
+        builder.Property(item => item.Id)
             .ValueGeneratedNever();
     }
 }
