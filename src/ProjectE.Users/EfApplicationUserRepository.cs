@@ -12,6 +12,7 @@ internal class EfApplicationUserRepository(UsersDbContext dbContext)
         return _dbContext.ApplicationUsers
             .Include(user => user.FavoriteSongs)
             .Include(user => user.FavoriteMovies)
+            .Include(user => user.FavoriteGames)
             .SingleAsync(user => user.Email == email);
     }
     

@@ -4,8 +4,8 @@ namespace ProjectE.Users;
 
 internal class Movie
 {
-    public Guid Id { get; set; }
-    public Guid MovieId { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid MovieId { get; set; }
     public string Title { get; set; } = string.Empty;
     public double Rating { get; set; }
     public string Emoji { get; set; } = string.Empty;
