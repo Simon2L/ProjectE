@@ -23,9 +23,9 @@ const sampleFavorites : IFavorites = {
         {id: "5", title: "Hello movie", rating: 1, emoji: "⚡️💭"}
     ],
     games: [
-      {id: "1", name: "Game", publishYear: 2024, emoji: "🍭"},
-      {id: "2", name: "Mario", publishYear: 2021, emoji: "🦓"},
-      {id: "3", name: "Game 3", publishYear: 2018, emoji: "📺"},
+      {id: "1", name: "Game", rating: 2024, emoji: "🍭"},
+      {id: "2", name: "Mario", rating: 2021, emoji: "🦓"},
+      {id: "3", name: "Game 3", rating: 2018, emoji: "📺"},
     ]
 
 }

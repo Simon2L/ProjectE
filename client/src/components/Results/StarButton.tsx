@@ -5,7 +5,7 @@ import { useState } from "react"
 
 interface IProps {
     add : IMovie | ISong | IGame
-    handleAddToFavorites(add: unknown) : void
+    handleAddToFavorites(add: unknown, isFavorite: boolean) : void
 }
 
 const StarButton = (props : IProps) => {
@@ -13,8 +13,8 @@ const StarButton = (props : IProps) => {
 
     return (
         <button className="hover:scale-110 ease-in duration-150 hover:hue-rotate-0" onClick={() => {
-                    props.handleAddToFavorites(props.add); 
-                    setIsFavorite(!isFavorite)
+                    props.handleAddToFavorites(props.add, isFavorite); 
+                    setIsFavorite(true)
                 }}>
             <img className="max-w-[30px] max-h-[30px]" src={isFavorite ? filledStar : star} />
         </button>

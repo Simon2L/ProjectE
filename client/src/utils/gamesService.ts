@@ -2,6 +2,14 @@ import { IEmojiAnswers, IGame, IGameResult } from "../Interfaces/interfaces";
 
 const BASE_URL = "https://localhost:7194"
 
+interface IAddGameToFavoritesRequest {
+  id: string
+  name: string
+  rating: number //its publish year too lazy to fix
+  emoji: string
+}
+
+
 export const gameResult = async (emojiAnswers : IEmojiAnswers) : Promise<IGameResult>  => {
 try {
     const response = await fetch(`${BASE_URL}/games/emojis?firstEmoji=${emojiAnswers.firstEmoji}&secondEmoji=${emojiAnswers.secondEmoji}&thirdEmoji=${emojiAnswers.thirdEmoji}`, {
@@ -14,22 +22,65 @@ try {
        return response.json();
    }
    else {
-       const defaultSongs : IGameResult = { games: getMovies() }
-       return defaultSongs;
+       const defaultGames : IGameResult = { games: getMovies() }
+       return defaultGames;
    }
   }
   catch {
-    const defaultSongs : IGameResult = {  games: getMovies() }
-    return defaultSongs;
+    const defaultGames : IGameResult = {  games: getMovies() }
+    return defaultGames;
+  }
+}
+
+export const addGameToFavorites = async (game : IAddGameToFavoritesRequest) => {
+  try {
+    const response = await fetch(`${BASE_URL}/favorites/game`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem("token")}`
+      },
+      body: JSON.stringify(game)
+    })
+    if(response) {
+    }
+    else {
+    }
+  }
+  catch {
+  }
+}
+
+export const removeGameFromFavorites = async (gameId : string) => {
+  console.log(gameId)
+  try {
+    const response = await fetch(`${BASE_URL}/favorites/game/${gameId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem("token")}`
+      }
+    })
+    if (response.status === 204) {
+      console.log("Game successfully removed from favorites")
+    }
+    else {
+      console.log("Oooops something went wrong")
+      console.log(await response.json())
+    }
+  }
+  catch {
+    console.log("Server down")
   }
 }
 
 const getMovies = () : IGame[] => {
   return [
-      {id: "1", name: "Game", publishYear: 2024, emoji: "🍭"},
-      {id: "2", name: "Mario", publishYear: 2021, emoji: "🦓"},
-      {id: "3", name: "Game 3", publishYear: 2018, emoji: "📺"},
-      {id: "4", name: "Something game", publishYear: 1999, emoji: "👑"},
-      {id: "5", name: "My Game", publishYear: 2005, emoji: "⚡️"},
+      {id: "1", name: "Game", rating: 2024, emoji: "🍭"},
+      {id: "2", name: "Mario", rating: 2021, emoji: "🦓"},
+      {id: "3", name: "Game 3", rating: 2018, emoji: "📺"},
+      {id: "4", name: "Something game", rating: 1999, emoji: "👑"},
+      {id: "5", name: "My Game", rating: 2005, emoji: "⚡️"},
   ]
 }
