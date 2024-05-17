@@ -44,12 +44,13 @@ internal class MusicService(IMusicRepository musicRepository) : IMusicService
 
     public async Task<List<MusicDto>> ListMusicRelatedToEmojisAsync(ListMusicRelatedToEmojisRequest req)
     {
-
+        var random = new Random();
         var music = (await _musicRepository.ListAsync())
             .Where(music => music.Emoji.Contains(req.FirstEmoji)
             || music.Emoji.Contains(req.SecondEmoji)
             || music.Emoji.Contains(req.ThirdEmoji))
             .Select(music => new MusicDto(music.Id, music.SongName, music.Artist, music.Emoji))
+            .OrderBy(x => random.Next())
             .Take(5)
             .ToList();
 

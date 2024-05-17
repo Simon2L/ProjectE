@@ -1,15 +1,21 @@
 import { FormEvent, useState } from "react";
 import { signup } from "../../authentication";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const response = await signup({ username: username, email: email, password: password })
-        response
+        if(response === true){
+            navigate("/login");
+        } else {
+            // Failed to create user
+        }
     }
 
     return (

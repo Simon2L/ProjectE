@@ -38,7 +38,7 @@ export const movieQuestions : IQuiz = {
 }
 
 export const gameQuestions : IQuiz = {
-  topic: "games",
+  topic: "game",
   questions: [
     {
       question: "Pick the set of emojis!",

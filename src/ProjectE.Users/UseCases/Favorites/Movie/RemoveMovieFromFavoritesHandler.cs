@@ -26,6 +26,8 @@ internal class RemoveMovieFromFavoritesHandler(IApplicationUserRepository userRe
             return Result.NotFound();
         }
 
+        await _userRepository.SaveChangesAsync();
+
         return Result.Success();
 
     }

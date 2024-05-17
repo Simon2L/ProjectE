@@ -52,7 +52,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTk1MDAxNiwiaWF0IjoxNzE1MzQ1MjE2LCJuYmYiOjE3MTUzNDUyMTZ9.mDbuR5TaiQRrExZCmAumgd9xi4nhHBaTVYjsk5CClVo
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTcxNjQ3MDQ1NSwiaWF0IjoxNzE1ODY1NjU1LCJuYmYiOjE3MTU4NjU2NTV9.Ggyls1yd5MdHUk7cANDQyOZw_5LLe6sJ_ddMyt3hR-w
 
 GET {{ProjectE.Web_HostAddress}}/music/emojis?firstEmoji=%F0%9F%91%91&secondEmoji=%F0%9F%91%91&thirdEmoji=%F0%9F%91%91
 Accept: application/json
