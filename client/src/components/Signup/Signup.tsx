@@ -15,7 +15,6 @@ const Signup = () => {
     return (
         <div className="grid place-items-center">
             <form className="flex flex-col max-w-sm justify-center items-center gap-4" onSubmit={handleSubmit}>
-                <h2 className="text-4xl">Signup now!</h2>
 
                 <label className="text-xl mr-2">Username 🧑‍🍳</label>
                 <input className="p-2 text-xl rounded-md min-h-11" onChange={e => setUsername(e.target.value)} type="text" />
