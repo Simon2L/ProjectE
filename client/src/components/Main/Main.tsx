@@ -26,7 +26,7 @@ const Main = () => {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-[50vh] font-nunito uppercase text-xl font-bold">
+    <main className="flex flex-col items-center content-between min-h-[40vh] font-nunito uppercase text-xl font-bold">
       {(buttonIsPressed === false) ? (
         <>
         <h4 className="mb-14">Pick emoji to start the quiz</h4>
@@ -45,7 +45,7 @@ const Main = () => {
       ) : (
         <>        
           <Quiz quizQuestions={questionType} />
-          <button className="mt-24 uppercase text-lg px-3 py-1 shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" onClick={() => setButtonIsPressed(false)}>Return🙅</button>
+          <button className="mt-9 uppercase text-lg px-3 py-1 shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" onClick={() => setButtonIsPressed(false)}>Return🙅</button>
         </>
       )}
     </main>
