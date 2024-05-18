@@ -45,7 +45,7 @@ const Main = () => {
       ) : (
         <>        
           <Quiz quizQuestions={questionType} />
-          <button className="mt-14 uppercase text-lg px-3 py-1 shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" onClick={() => setButtonIsPressed(false)}>Return🙅</button>
+          <button className="mt-24 uppercase text-lg px-3 py-1 shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_3px_0px_rgb(0,0,0)] text-black bg-white bg-opacity-20 ease-out hover:translate-y-1 transition-all rounded" onClick={() => setButtonIsPressed(false)}>Return🙅</button>
         </>
       )}
     </main>
