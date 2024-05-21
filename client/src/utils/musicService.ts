@@ -15,10 +15,11 @@ try {
       method: 'GET',
       headers: {
           'Accept': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")}`
       },
   });
    if (response.ok) {
-       return response.json();
+      return response.json();
    }
    else {
        const defaultSongs : ISongResult = { music: getSongs() }
