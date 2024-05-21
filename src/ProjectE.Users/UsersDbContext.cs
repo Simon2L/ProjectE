@@ -26,6 +26,8 @@ internal class UsersDbContext : IdentityDbContext
     {
         configurationBuilder.Properties<double>()
             .HavePrecision(3, 1);
+
+
     }
 
 }

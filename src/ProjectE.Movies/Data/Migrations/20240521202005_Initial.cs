@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjectE.Movies.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class LongerTitles : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,13 +46,13 @@ namespace ProjectE.Movies.Data.Migrations
                     { new Guid("492e1cab-37a1-491f-b2e1-6b2c44272eb1"), "🔍", 8.5, "The Prestige" },
                     { new Guid("4ab7230b-00cc-4c19-bf6c-10757b034069"), "🏆", 8.0999999999999996, "Rush" },
                     { new Guid("60b82e02-14ee-431c-bb5a-2038b1483083"), "🎤 ", 7.5999999999999996, "A Star is Born" },
-                    { new Guid("849e8fbf-186a-4684-94ef-749c9cb97657"), "🧝‍♀️", 8.9000000000000004, "The Lord of the Rings: The Fellowship of the Ring " },
+                    { new Guid("849e8fbf-186a-4684-94ef-749c9cb97657"), "🧝‍♀️", 8.9000000000000004, "The Fellowship of the Ring " },
                     { new Guid("8d0e1c90-3dc7-464f-a9f6-1386d0712bc8"), "🧑‍🎤 ", 7.9000000000000004, "Bohemian Rhapsody" },
                     { new Guid("aeb01cbc-0365-4773-801c-0e987329ef09"), "🩸", 7.7999999999999998, "Get Out" },
-                    { new Guid("b372fb74-26ee-41f7-9557-e00c95422609"), "🧝‍♀️", 7.7999999999999998, "The Hobbit: An Unexpected Journey" },
+                    { new Guid("b372fb74-26ee-41f7-9557-e00c95422609"), "🧝‍♀️", 7.7999999999999998, "The Hobbit" },
                     { new Guid("c09be204-ce54-4de2-aaaf-846b9ff3d3d2"), "🩸", 6.7999999999999998, "The First Omen" },
                     { new Guid("c16323d1-f1d5-4ba8-85a2-b6f2b425c511"), "😂", 7.5999999999999996, "Superbad" },
-                    { new Guid("cb0d79d9-506e-4dfb-8805-2cddc447f819"), "🧝‍♀️", 6.9000000000000004, "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe" },
+                    { new Guid("cb0d79d9-506e-4dfb-8805-2cddc447f819"), "🧝‍♀️", 6.9000000000000004, "The Chronicles of Narnia" },
                     { new Guid("cccf4cbb-9c69-424e-b52f-b234ba51c281"), "😂", 7.9000000000000004, "The Holdovers" },
                     { new Guid("cda4498c-7fda-4039-9d46-fa1cd83512a6"), "💌", 7.7000000000000002, "Brokeback Mountain" },
                     { new Guid("cec6ea94-91b2-4fb8-adaa-d79dbf7993e0"), "🛰️", 8.6999999999999993, "Interstellar" },

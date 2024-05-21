@@ -29,7 +29,7 @@ internal class ApplicationUser : IdentityUser
     public void AddMovieToFavorites(Movie movie) 
     {
         Guard.Against.Null(movie);
-        var existingMovie = _favoriteMovies.FirstOrDefault(m => m.MovieId == m.MovieId);
+        var existingMovie = _favoriteMovies.FirstOrDefault(m => m.MovieId == movie.MovieId);
         if (existingMovie is not null)
         {
             return;
@@ -39,7 +39,7 @@ internal class ApplicationUser : IdentityUser
     public void AddGameToFavorites(Game game)
     {
         Guard.Against.Null(game);
-        var existingGame = _favoriteGames.FirstOrDefault(g => game.Id == g.Id );
+        var existingGame = _favoriteGames.FirstOrDefault(g => game.GameId == g.GameId);
         if (existingGame is not null)
         {
             return;

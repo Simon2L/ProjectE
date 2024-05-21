@@ -233,7 +233,6 @@ namespace ProjectE.Users.Data.Migrations
             modelBuilder.Entity("ProjectE.Users.Game", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ApplicationUserId")
@@ -264,7 +263,6 @@ namespace ProjectE.Users.Data.Migrations
             modelBuilder.Entity("ProjectE.Users.Movie", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ApplicationUserId")
@@ -295,7 +293,6 @@ namespace ProjectE.Users.Data.Migrations
             modelBuilder.Entity("ProjectE.Users.Song", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ApplicationUserId")

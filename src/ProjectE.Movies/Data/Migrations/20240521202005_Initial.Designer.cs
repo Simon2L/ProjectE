@@ -12,8 +12,8 @@ using ProjectE.Movies.Data;
 namespace ProjectE.Movies.Data.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20240502133812_LongerTitles")]
-    partial class LongerTitles
+    [Migration("20240521202005_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,6 @@ namespace ProjectE.Movies.Data.Migrations
                     b.Property<string>("Emoji")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .IsUnicode(true)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<double>("Rating")
@@ -78,21 +77,21 @@ namespace ProjectE.Movies.Data.Migrations
                             Id = new Guid("849e8fbf-186a-4684-94ef-749c9cb97657"),
                             Emoji = "🧝‍♀️",
                             Rating = 8.9000000000000004,
-                            Title = "The Lord of the Rings: The Fellowship of the Ring "
+                            Title = "The Fellowship of the Ring "
                         },
                         new
                         {
                             Id = new Guid("b372fb74-26ee-41f7-9557-e00c95422609"),
                             Emoji = "🧝‍♀️",
                             Rating = 7.7999999999999998,
-                            Title = "The Hobbit: An Unexpected Journey"
+                            Title = "The Hobbit"
                         },
                         new
                         {
                             Id = new Guid("cb0d79d9-506e-4dfb-8805-2cddc447f819"),
                             Emoji = "🧝‍♀️",
                             Rating = 6.9000000000000004,
-                            Title = "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe"
+                            Title = "The Chronicles of Narnia"
                         },
                         new
                         {
