@@ -26,6 +26,8 @@ internal class RemoveGameFromFavoritesHandler(IApplicationUserRepository userRep
             return Result.NotFound();
         }
 
+        await _userRepository.SaveChangesAsync();
+
         return Result.Success();
 
     }

@@ -2,23 +2,23 @@
 
 namespace ProjectE.Users;
 
-internal class Movie
+internal class Game
 {
     public Guid Id { get; set; } = Guid.NewGuid();
-    public Guid MovieId { get; set; }
-    public string Title { get; set; } = string.Empty;
+    public Guid GameId { get; set; }
+    public string Name { get; set; } = string.Empty;
     public double Rating { get; set; }
     public string Emoji { get; set; } = string.Empty;
 
-    public Movie(Guid id, string title, double rating, string emoji)
+    public Game(Guid id, string title, double rating, string emoji)
     {
-        MovieId = Guard.Against.Default(id);
-        Title= Guard.Against.NullOrEmpty(title);
+        GameId = Guard.Against.Default(id);
+        Name = Guard.Against.NullOrEmpty(title);
         Rating = Guard.Against.NegativeOrZero(rating);
         Emoji = Guard.Against.NullOrEmpty(emoji);
     }
 
-    public Movie()
+    public Game()
     {
         // for EF
     }

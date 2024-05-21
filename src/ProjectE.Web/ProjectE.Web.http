@@ -1,4 +1,4 @@
-@ProjectE.Web_HostAddress = https://localhost:7194
+﻿@ProjectE.Web_HostAddress = https://localhost:7194
 
 @MusicID=9268891c-3aa8-4aff-ac5a-4454fa6aa672
 @MusicID2=a8233ebb-a2cb-4ec5-bbc2-9da1a7a06cb4
@@ -46,15 +46,30 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "testing@gmail.com",
-  "password": "MyP@ssword1!"
+  "email": "hello@gmail.com",
+  "password": "Mnbvcxz12@"
 }
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJ0ZXN0aW5nQGdtYWlsLmNvbSIsImV4cCI6MTcxNTk1MDAxNiwiaWF0IjoxNzE1MzQ1MjE2LCJuYmYiOjE3MTUzNDUyMTZ9.mDbuR5TaiQRrExZCmAumgd9xi4nhHBaTVYjsk5CClVo
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJoZWxsb0BnbWFpbC5jb20iLCJleHAiOjE3MTY5Mjg5MTEsImlhdCI6MTcxNjMyNDExMSwibmJmIjoxNzE2MzI0MTExfQ._92BFqyd9CpHfm_7X16glTkBjsp5BXXrL4xXtcFgjKg
 
-GET {{ProjectE.Web_HostAddress}}/music/emojis?firstEmoji=%F0%9F%91%91&secondEmoji=%F0%9F%91%91&thirdEmoji=%F0%9F%91%91
+POST {{ProjectE.Web_HostAddress}}/favorites/movie
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": "13d9d69b-06be-4227-9f15-4a416abcd2c4",
+  "title": "2nd movie",
+  "rating": 3,
+  "emoji": "ji"
+}
+
+
+###
+
+GET {{ProjectE.Web_HostAddress}}/music/emojis?firstEmoji=🩷&secondEmoji=👑&thirdEmoji=🪩
 Accept: application/json
 Authorization: Bearer {{token}}
 

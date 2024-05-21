@@ -230,6 +230,36 @@ namespace ProjectE.Users.Data.Migrations
                     b.ToTable("AspNetUserTokens", "Users");
                 });
 
+            modelBuilder.Entity("ProjectE.Users.Game", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Emoji")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Rating")
+                        .HasPrecision(3, 1)
+                        .HasColumnType("float(3)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Game", "Users");
+                });
+
             modelBuilder.Entity("ProjectE.Users.Movie", b =>
                 {
                     b.Property<Guid>("Id")
@@ -241,6 +271,9 @@ namespace ProjectE.Users.Data.Migrations
                     b.Property<string>("Emoji")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("Rating")
                         .HasPrecision(3, 1)
@@ -276,6 +309,9 @@ namespace ProjectE.Users.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SongId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -342,6 +378,13 @@ namespace ProjectE.Users.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProjectE.Users.Game", b =>
+                {
+                    b.HasOne("ProjectE.Users.ApplicationUser", null)
+                        .WithMany("FavoriteGames")
+                        .HasForeignKey("ApplicationUserId");
+                });
+
             modelBuilder.Entity("ProjectE.Users.Movie", b =>
                 {
                     b.HasOne("ProjectE.Users.ApplicationUser", null)
@@ -358,6 +401,8 @@ namespace ProjectE.Users.Data.Migrations
 
             modelBuilder.Entity("ProjectE.Users.ApplicationUser", b =>
                 {
+                    b.Navigation("FavoriteGames");
+
                     b.Navigation("FavoriteMovies");
 
                     b.Navigation("FavoriteSongs");

@@ -36,7 +36,7 @@ export interface IMovie {
 export interface IGame {
   id: string,
   name: string,
-  publishYear: number,
+  rating: number, //its publish year
   emoji: string
 }
 

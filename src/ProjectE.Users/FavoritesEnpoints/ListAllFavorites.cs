@@ -36,6 +36,7 @@ internal class ListAllFavorites(IMediator mediator) :
             {
                 Music = result.Value.Music,
                 Movies = result.Value.Movies,
+                Games = result.Value.Games
             };
 
             await SendAsync(response); 
@@ -49,5 +50,5 @@ internal class ListAllFavoritesResponse
 {
     public List<SongDto> Music { get; set; } = [];
     public List<MovieDto> Movies { get; set; } = [];
-    //public List<Game> Games { get; set; } = [];
+    public List<GameDto> Games { get; set; } = [];
 }

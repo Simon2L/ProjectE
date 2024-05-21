@@ -1,6 +1,7 @@
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
+using ProjectE.Games;
 using ProjectE.Movies;
 using ProjectE.Music;
 using ProjectE.Users;
@@ -28,6 +29,7 @@ List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddMusicServices(builder.Configuration, mediatRAssemblies);
 builder.Services.AddMovieServices(builder.Configuration, mediatRAssemblies);
 builder.Services.AddUserServices(builder.Configuration, mediatRAssemblies);
+builder.Services.AddGamesServices(builder.Configuration, mediatRAssemblies);
 
 // Set up MediatR
 builder.Services.AddMediatR(cfg =>

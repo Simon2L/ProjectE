@@ -4,7 +4,7 @@ const BASE_URL = "https://localhost:7194"
 
 interface IAddSongToFavoritesRequest {
   id: string
-  name: string
+  songName: string
   artist: string
   emoji: string
 }
@@ -15,10 +15,11 @@ try {
       method: 'GET',
       headers: {
           'Accept': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")}`
       },
   });
    if (response.ok) {
-       return response.json();
+      return response.json();
    }
    else {
        const defaultSongs : ISongResult = { music: getSongs() }
@@ -49,7 +50,30 @@ export const addSongToFavorites = async (song : IAddSongToFavoritesRequest) => {
   }
   catch {
   }
-} 
+}
+
+export const removeSongFromFavorites = async (songId : string) => {
+  console.log(songId)
+  try {
+    const response = await fetch(`${BASE_URL}/favorites/song/${songId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem("token")}`
+      }
+    })
+    if (response.status === 204) {
+      console.log("Song successfully removed from favorites")
+    }
+    else {
+      console.log("Oooops something went wrong")
+      console.log(await response.json())
+    }
+  }
+  catch {
+    console.log("Server down")
+  }
+}
 
 const getSongs = () : ISong[] => {
   return [

@@ -16,10 +16,10 @@ internal class IsFavoritedByUserHandler(IApplicationUserRepository applicationUs
 
         var result = user.FavoriteSongs.Join(
             req.SongIds, 
-            song => song.Id, 
+            song => song.SongId, 
             guid => guid, 
             (songId, guid) => songId)
-            .Select(song => song.Id)
+            .Select(song => song.SongId)
             .ToList();
 
         return result;

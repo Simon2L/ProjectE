@@ -4,27 +4,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ProjectE.Users;
 
-internal class Game
-{
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Name { get; set; } = string.Empty;
-    public double Rating { get; set; }
-    public string Emoji { get; set; } = string.Empty;
-
-    public Game(Guid id, string title, double rating, string emoji)
-    {
-        Id = Guard.Against.Default(id);
-        Name = Guard.Against.NullOrEmpty(title);
-        Rating = Guard.Against.NegativeOrZero(rating);
-        Emoji = Guard.Against.NullOrEmpty(emoji);
-    }
-
-    public Game()
-    {
-        // for EF
-    }
-}
-
 internal class ApplicationUser : IdentityUser
 {
     private readonly List<Song> _favoriteSongs = [];
@@ -39,7 +18,7 @@ internal class ApplicationUser : IdentityUser
     public void AddSongToFavorites(Song song)
     {
         Guard.Against.Null(song);
-        var existingSong = _favoriteSongs.FirstOrDefault(s => s.Id == song.Id);
+        var existingSong = _favoriteSongs.FirstOrDefault(s => s.SongId == song.SongId);
         if (existingSong is not null)
         {
             return;
@@ -48,9 +27,9 @@ internal class ApplicationUser : IdentityUser
     }
 
     public void AddMovieToFavorites(Movie movie) 
-    { 
+    {
         Guard.Against.Null(movie);
-        var existingMovie = _favoriteSongs.FirstOrDefault(m => m.Id == m.Id);
+        var existingMovie = _favoriteMovies.FirstOrDefault(m => m.MovieId == movie.MovieId);
         if (existingMovie is not null)
         {
             return;
@@ -60,7 +39,7 @@ internal class ApplicationUser : IdentityUser
     public void AddGameToFavorites(Game game)
     {
         Guard.Against.Null(game);
-        var existingGame = _favoriteGames.FirstOrDefault(g => game.Id == g.Id );
+        var existingGame = _favoriteGames.FirstOrDefault(g => game.GameId == g.GameId);
         if (existingGame is not null)
         {
             return;
