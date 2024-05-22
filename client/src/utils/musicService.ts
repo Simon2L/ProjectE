@@ -53,7 +53,7 @@ export const addSongToFavorites = async (song : IAddSongToFavoritesRequest) => {
 }
 
 export const removeSongFromFavorites = async (songId : string) => {
-  console.log(songId)
+
   try {
     const response = await fetch(`${BASE_URL}/favorites/song/${songId}`, {
       method: 'DELETE',
@@ -63,7 +63,6 @@ export const removeSongFromFavorites = async (songId : string) => {
       }
     })
     if (response.status === 204) {
-      console.log("Song successfully removed from favorites")
     }
     else {
       console.log("Oooops something went wrong")

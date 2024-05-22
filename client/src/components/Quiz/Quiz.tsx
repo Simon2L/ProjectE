@@ -82,8 +82,6 @@ const Quiz = (props: IProps) => {
             ))}
           </ul>
         </div>}
-      {/* <button onClick={() => console.log(answers)}>Console</button> */}
-
       {songResults && <SongResults songResults={songResults} />}
       {movieResults && <MoviesResults movieResults={movieResults} />}
       {gameResults && <GamesResults gameResults={gameResults} />}

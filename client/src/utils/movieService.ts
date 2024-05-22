@@ -49,12 +49,10 @@ export const addMovieToFavorites = async (movie : IAddMovieToFavoritesRequest) =
     }
   }
   catch (e) {
-    console.log(e)
   }
 }
 
 export const removeMovieFromFavorites = async (movieId : string) => {
-  console.log(movieId)
   try {
     const response = await fetch(`${BASE_URL}/favorites/movie/${movieId}`, {
       method: 'DELETE',
@@ -64,7 +62,6 @@ export const removeMovieFromFavorites = async (movieId : string) => {
       }
     })
     if (response.status === 204) {
-      console.log("Movie successfully removed from favorites")
     }
     else {
       console.log("Oooops something went wrong")

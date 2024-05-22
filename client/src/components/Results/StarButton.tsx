@@ -14,7 +14,6 @@ const StarButton = (props : IProps) => {
     return (
         <button className="hover:scale-110 ease-in duration-150 hover:hue-rotate-0" onClick={() => {
                     props.handleAddToFavorites(props.add, isFavorite); 
-                    console.log(props.add.isFavoritedByUser)
                     setIsFavorite(true)
                 }}>
             <img className="max-w-[30px] max-h-[30px]" src={isFavorite ? filledStar : star} />

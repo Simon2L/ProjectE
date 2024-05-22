@@ -24,7 +24,6 @@ function App() {
   },[])
 
   const logout = () => {
-    console.log(currentUser);
     setCurrentUser(undefined)
     sessionStorage.clear();
   }

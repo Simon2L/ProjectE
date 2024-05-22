@@ -53,7 +53,6 @@ export const addGameToFavorites = async (game : IAddGameToFavoritesRequest) => {
 }
 
 export const removeGameFromFavorites = async (gameId : string) => {
-  console.log(gameId)
   try {
     const response = await fetch(`${BASE_URL}/favorites/game/${gameId}`, {
       method: 'DELETE',
@@ -63,7 +62,6 @@ export const removeGameFromFavorites = async (gameId : string) => {
       }
     })
     if (response.status === 204) {
-      console.log("Game successfully removed from favorites")
     }
     else {
       console.log("Oooops something went wrong")

@@ -29,7 +29,7 @@ const Main = () => {
     <main className="flex flex-col items-center content-between min-h-[40vh] font-nunito uppercase text-xl font-bold">
       {(buttonIsPressed === false) ? (
         <>
-        <h4 className="mb-14">Pick emoji to start the quiz</h4>
+        <h4 className="mb-14">Pick an emoji to start the quiz</h4>
         <ul className="flex flex-row list-none gap-10">
           <li>
             <button value="music" className="text-8xl hover:scale-110 ease-in duration-150" onClick={(event) => onButtonClick(event.currentTarget.value)}>🎧</button>
